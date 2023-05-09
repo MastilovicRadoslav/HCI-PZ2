@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace NetworkService.Model
+namespace NetworkService
 {
 	public class MyICommand : ICommand
 	{
@@ -15,7 +15,7 @@ namespace NetworkService.Model
 		public MyICommand(Action executeMethod)
 		{
 			_TargetExecuteMethod = executeMethod;
-		}							//cole
+		}
 
 		public MyICommand(Action executeMethod, Func<bool> canExecuteMethod)
 		{

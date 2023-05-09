@@ -6,11 +6,10 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetworkService.Model
+namespace NetworkService
 {
 	public class BindableBase : INotifyPropertyChanged
 	{
-
 		protected virtual void SetProperty<T>(ref T member, T val,
 		   [CallerMemberName] string propertyName = null)
 		{
