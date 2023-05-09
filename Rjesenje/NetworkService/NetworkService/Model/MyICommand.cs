@@ -15,7 +15,7 @@ namespace NetworkService.Model
 		public MyICommand(Action executeMethod)
 		{
 			_TargetExecuteMethod = executeMethod;
-		}
+		}							//cole
 
 		public MyICommand(Action executeMethod, Func<bool> canExecuteMethod)
 		{
