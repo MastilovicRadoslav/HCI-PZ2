@@ -56,6 +56,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BindableBase.cs" />
+    <Compile Include="Model\Saobracaj.cs" />
+    <Compile Include="Model\TypeSaobracaj.cs" />
     <Compile Include="MyICommand.cs" />
     <Compile Include="ValidationBase.cs" />
     <Compile Include="ValidationErrors.cs" />
@@ -125,7 +127,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Resource Include="Resources\Images\iA.jpg" />
+    <Resource Include="Resources\Images\iB.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
