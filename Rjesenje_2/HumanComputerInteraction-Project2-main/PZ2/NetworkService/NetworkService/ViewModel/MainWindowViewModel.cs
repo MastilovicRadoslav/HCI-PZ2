@@ -15,6 +15,7 @@ namespace NetworkService.ViewModel
 
     public class MainWindowViewModel : BindableBase
     {
+        //Prozori i manipulacija
         public MyICommand<string> NavCommand { get; private set; }
         public MyICommand ChangeCommand { get; set; }
 
@@ -65,8 +66,7 @@ namespace NetworkService.ViewModel
                     break;
                 case "MesGraph":
                     CurrentViewModel = measurementGraphViewModel;
-                    break;
-                
+                    break;             
             }
         }
 

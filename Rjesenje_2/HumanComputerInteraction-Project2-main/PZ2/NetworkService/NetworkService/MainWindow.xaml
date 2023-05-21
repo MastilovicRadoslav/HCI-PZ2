@@ -7,11 +7,12 @@
         xmlns:views="clr-namespace:NetworkService.Views"
         xmlns:viewModel="clr-namespace:NetworkService.ViewModel"
         mc:Ignorable="d"
-        Title="CG5 T3 G2 P1" Height="800" Width="1400" WindowState="Maximized" WindowStartupLocation="Manual">
+        Title="CG5 T3 G2 P1" Height="800" Width="1400" WindowState="Normal" WindowStartupLocation="CenterScreen">
+    <!--Prikaz glavnog prozora-->
     <Window.DataContext>
         <viewModel:MainWindowViewModel/>
     </Window.DataContext>
-
+    <!--Opcije za prikaz-->
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModel:NetworkEntitiesViewModel}">
             <views:NetworkEntitiesView/>
@@ -23,6 +24,7 @@
             <views:MeasurementGraphView/>
         </DataTemplate>
     </Window.Resources>
+    <!---->
     <Window.InputBindings>
         <KeyBinding Command="{Binding ChangeCommand}" Modifiers="Ctrl" Key="Tab"/>
     </Window.InputBindings>
@@ -31,19 +33,19 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0" Margin="5">
+        <DockPanel Grid.Row="0" Margin="0 0 0 0">
             <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Network Entities" Margin="120 5 5 5"  FontSize="20" FontFamily="Comic Sans MS" 
-                          Command="{Binding NavCommand}" CommandParameter="NetEnt" />
+                <MenuItem Header="Network Entities" Margin="60 5 5 5"  FontSize="20" FontFamily="Comic Sans MS" 
+                          Command="{Binding NavCommand}" CommandParameter="NetEnt"/>
                 <MenuItem Header="Network Display" Margin="350 5 5 5" FontSize="20" FontFamily="Comic Sans MS"
                           Command="{Binding NavCommand}" CommandParameter="NetDis"/>
-                <MenuItem Header="Measurement Graph" Margin="350 5 5 5" FontSize="20" FontFamily="Comic Sans MS"
+                <MenuItem Header="Measurement Graph" Margin="360 5 5 5" FontSize="20" FontFamily="Comic Sans MS"
                           Command="{Binding NavCommand}" CommandParameter="MesGraph"/>
             </Menu>
         </DockPanel>
 
-        <Grid Grid.Row="1">
-            <ContentControl Content="{Binding CurrentViewModel}"/>
+        <Grid Grid.Row="1" Margin="0 0 0 0">
+            <ContentControl Content="{Binding CurrentViewModel}"  />
         </Grid>
     </Grid>
 </Window>

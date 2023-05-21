@@ -13,13 +13,16 @@
     <UserControl.DataContext>
         <viewModel:NetworkDisplayViewModel/>
     </UserControl.DataContext>
+    
     <UserControl.InputBindings>
         <KeyBinding Command="{Binding AutoPlaceCommand}" Modifiers="Ctrl" Key="D"/>
         <KeyBinding Command="{Binding HelpCommand}" Modifiers="Ctrl" Key="H"/>
     </UserControl.InputBindings>
+    
     <Canvas Width="1400" Height="750" Background="AliceBlue">
         <Label Content="NETWORK DISPLAY" FontFamily="Comic sans ms" FontSize="50" Canvas.Top="10" Canvas.Left="453"/>
         <Canvas Width="1000" Height="600" Canvas.Top="100" Canvas.Left="10" x:Name="CANVAS">
+            
             <!--PlaceHolderi-->
             <Canvas AllowDrop="True" x:Name="c0" Width="200" Height="150" Canvas.Left="10" Canvas.Top="10" Background="{Binding Canvases[0].Background}" ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Prikaz stanja entiteta">
                 <TextBlock Width="200" Text="{Binding Canvases[0].Text}" Foreground="{Binding Canvases[0].Foreground}" TextAlignment="Center" FontSize="15" FontFamily="Comic Sans MS" Canvas.Top="110"/>
@@ -265,6 +268,7 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </ListView>
+        
         <CheckBox Content="ToolTip" IsChecked="{Binding ToolTipsBool}" FontFamily="Comic Sans MS" FontSize="15" Canvas.Left="1230" Canvas.Top="7" 
                   Height="20" Width="75">
             <CheckBox.LayoutTransform>
