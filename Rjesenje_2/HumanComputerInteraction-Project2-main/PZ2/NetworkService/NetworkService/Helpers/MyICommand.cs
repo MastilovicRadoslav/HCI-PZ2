@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace NetworkService
+namespace NetworkService.Helpers
 {
 	public class MyICommand : ICommand
 	{

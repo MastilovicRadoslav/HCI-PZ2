@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="NetworkService.Views.NetworkEntitiesView"
+﻿<UserControl x:Class="NetworkService.Views.MeasurementGraphView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,13 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1400">
     <UserControl.DataContext>
-        <viewModel:NetworkEntitiesViewModel/>
+        <viewModel:MeasurementGraphViewModel/>
     </UserControl.DataContext>
-    <UserControl.InputBindings>
-        <KeyBinding Command="{Binding FilterCommand}" Modifiers="Ctrl" Key="F"/>
-        <KeyBinding Command="{Binding AddCommand}" Modifiers="Ctrl" Key="D"/>
-        <KeyBinding Command="{Binding HelpCommand}" Modifiers="Ctrl" Key="H"/>
-    </UserControl.InputBindings>
-    
-    
+   
 </UserControl>

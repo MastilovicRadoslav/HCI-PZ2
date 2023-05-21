@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetworkService.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,8 +14,6 @@ namespace NetworkService.Model
 		string name;
 		double valued;
 		TypeSaobracaj type;
-
-
 
 		public Saobracaj()
 		{
@@ -40,7 +39,7 @@ namespace NetworkService.Model
 			set
 			{ 
 				id = value;
-				OnPropertyChanged("Id");
+				OnPropertyChanged("Id");	//obavijesti da se promijenio
 			}
 		}
 
@@ -67,8 +66,6 @@ namespace NetworkService.Model
 			} 
 		
 		}
-
-
 		protected override void ValidateSelf()
 		{
 			if(this.Id <= 0)
@@ -93,7 +90,7 @@ namespace NetworkService.Model
 
 			if(type == null)
 			{
-				this.ValidationErrors["Type"] = "Ty[e is required";
+				this.ValidationErrors["Type"] = "Type is required";
 			}
 		}
 

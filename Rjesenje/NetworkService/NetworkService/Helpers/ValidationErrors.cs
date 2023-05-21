@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetworkService
+namespace NetworkService.Helpers
 {
 	public class ValidationErrors : BindableBase
 	{

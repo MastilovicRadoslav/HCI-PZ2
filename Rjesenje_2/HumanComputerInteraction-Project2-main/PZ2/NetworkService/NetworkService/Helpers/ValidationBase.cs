@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetworkService
+namespace NetworkService.Helpers
 {
 	public abstract class ValidationBase : BindableBase
 	{
 		public ValidationErrors ValidationErrors { get; set; }
+
 		public bool IsValid { get; private set; }
 
 		protected ValidationBase()
