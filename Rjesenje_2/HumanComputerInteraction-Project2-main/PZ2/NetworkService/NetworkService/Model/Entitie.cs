@@ -1,4 +1,6 @@
 ﻿using NetworkService.Helpers;
+using NetworkService.ViewModel;
+using NetworkService.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,8 +63,10 @@ namespace NetworkService.Model
                 {
                     valued = value;
                     OnPropertyChanged("Valued");
-                }
-            }
+					MeasurementGraphViewModel.ElementHeights.FirstBindingPoint = MeasurementGraphViewModel.CalculateElementHeight(value, Id);
+
+				}
+			}
         }
         public Type Type
         {

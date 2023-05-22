@@ -22,44 +22,77 @@ namespace NetworkService.ViewModel
 
 		public static double CalculateElementHeight(double value, int index)
 		{
-			if (idForShow == index || idForShow == -1) { return 60 + (10 - value) * 20; }
-			return 260;
+			if (idForShow == index || idForShow == -1) { return 60 + (18500 - value) * 0.0108; }
+			return 100;
 		}
 
 		// Odavde je za filter.
-		private string idReactor;
+		private string idSaobracaj;
 		public MyICommand ShowCommand { get; set; }
+		public MyICommand HelpCommand { get; set; }                         //Help komanda
+
 		public List<int> ComboBoxData { get; set; } = new List<int>();
 		//private string path = Environment.CurrentDirectory + @"\LogFile.txt";
 
 		public MeasurementGraphViewModel()
 		{
+			ToolTipsBool = MainWindowViewModel.UseToolTips;
+			HelpCommand = new MyICommand(OnHelp);
 			ShowCommand = new MyICommand(OnShow);
 			foreach (Entitie e in NetworkEntitiesViewModel.Entiteti) { ComboBoxData.Add(e.Id); }
 		}
 
-
-		public string IdReactor
+		//Help
+		string helpText;
+		static string saveHelp = "";
+		public string HelpText
 		{
-			get { return idReactor; }
+			get => helpText;
 			set
 			{
-				idReactor = value;
-				OnPropertyChanged("IdReactor");
+				helpText = value;
+				saveHelp = value;
+				OnPropertyChanged("HelpText");
+				HelpCommand.RaiseCanExecuteChanged();
+			}
+		}
+		//Komadna
+		private void OnHelp()
+		{
+			if (HelpText == string.Empty)
+			{
+				HelpText = "U koliko vam je potrebna pomoć,prečice su sledeće:" + "\nCTRL+DH -> Help\nCTRL+S -> ComboBox prikaz " +
+						   "\nMeasurementGraph prikazuje podatke na svom grafiku, podaci zavise od vrijednosti koje se dobiju iz " +
+						   "MeteringSimulator T3";
+			}
+			else
+			{
+				HelpText = string.Empty;
+			}
+		}
+
+
+		public string IdSaobracaj
+		{
+			get { return idSaobracaj; }
+			set
+			{
+				idSaobracaj = value;
+				OnPropertyChanged("IdSaobracaj");
 				ShowCommand.RaiseCanExecuteChanged();
 			}
 		}
 
-		private int selectedGeneratorType;    // Pamcenje tipa generatora koji smo izabrali. 
-		public int SelectedGeneratorType
+		private int selectedSaobracajType;    // Pamcenje tipa generatora koji smo izabrali. 
+		public int SelectedSaobracajType
 		{
-			get { return selectedGeneratorType; }
+			get { return selectedSaobracajType; }
 			set
 			{
-				if (selectedGeneratorType != value)
+				if (selectedSaobracajType != value)
 				{
-					selectedGeneratorType = value;
-					OnPropertyChanged("SelectedGeneratorType");
+					selectedSaobracajType = value;
+					OnPropertyChanged("SelectedSaobracajType");
 				}
 			}
 		}
@@ -71,10 +104,20 @@ namespace NetworkService.ViewModel
 
 		private void OnShow()
 		{
-			idForShow = selectedGeneratorType;
+			idForShow = selectedSaobracajType;
 		}
 
+		bool toolTipsBool;                                                  //bool promjenljiva za ToolTip
 
-
+		public bool ToolTipsBool                                            //Property za ToolTip
+		{
+			get => toolTipsBool;
+			set
+			{
+				toolTipsBool = value;
+				MainWindowViewModel.UseToolTips = value;
+				OnPropertyChanged("ToolTipsBool");
+			}
+		}
 	}
 }

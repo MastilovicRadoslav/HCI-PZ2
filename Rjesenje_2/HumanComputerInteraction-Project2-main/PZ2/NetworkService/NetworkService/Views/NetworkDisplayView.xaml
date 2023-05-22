@@ -241,18 +241,55 @@
                 </Canvas.InputBindings>
             </Canvas>
             <!--Dugmad-->
-            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c0}" Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="10" Canvas.Top="165"/>
-            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c1}" Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="270" Canvas.Top="165"/>
-            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c2}" Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="530" Canvas.Top="165"/>
-            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c3}" Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="790" Canvas.Top="165"/>
-            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c4}" Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="10" Canvas.Top="365"/>
-            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c5}" Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="270" Canvas.Top="365"/>
-            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c6}" Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="530" Canvas.Top="365"/>
-            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c7}" Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="790" Canvas.Top="365"/>
-            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c8}" Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="10" Canvas.Top="565"/>
-            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c9}" Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="270" Canvas.Top="565"/>
-            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c10}" Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="530" Canvas.Top="565"/>
-            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c11}" Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="790" Canvas.Top="565"/>
+            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
+                    ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
+                    Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c0}"
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="10" Canvas.Top="165"/>
+            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
+                    ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" 
+                    Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c1}" 
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="270" Canvas.Top="165"/>
+            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}"
+                    ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
+                    Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c2}"
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="530" Canvas.Top="165"/>
+            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
+                    ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
+                    Command="{Binding ButtonCommand}" 
+                    CommandParameter="{Binding ElementName=c3}"
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="790" Canvas.Top="165"/>
+            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
+                    ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
+                    Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c4}" 
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="10" Canvas.Top="365"/>
+            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
+                    ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
+                    Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c5}"
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="270" Canvas.Top="365"/>
+            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
+                    ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
+                    Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c6}"
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="530" Canvas.Top="365"/>
+            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
+                    ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" 
+                    Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c7}"
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="790" Canvas.Top="365"/>
+            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
+                    ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" 
+                    Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c8}"
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="10" Canvas.Top="565"/>
+            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
+                    ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
+                    Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c9}"
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="270" Canvas.Top="565"/>
+            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
+                    ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" 
+                    Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c10}"
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="530" Canvas.Top="565"/>
+            <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
+                    ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" 
+                    Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c11}"
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="790" Canvas.Top="565"/>
         </Canvas>
         
         <!--Lista-->

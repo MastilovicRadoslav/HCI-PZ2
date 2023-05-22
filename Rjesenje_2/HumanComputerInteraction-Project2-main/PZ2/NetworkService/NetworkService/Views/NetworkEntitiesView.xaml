@@ -18,7 +18,7 @@
         <KeyBinding Command="{Binding HelpCommand}" Modifiers="Ctrl" Key="H"/>
     </UserControl.InputBindings>
     <!--Sve-->
-    <Canvas Width="1400" Height="750" Background="AliceBlue">
+    <Canvas Width="1400" Height="750" Background="AliceBlue" >
         <!--Naslov-->
         <Label Content="NETWORK ENTITIES"  Canvas.Left="434" FontFamily="Comic Sans MS" FontSize="50" Canvas.Top="10"/>
         <!--Greske prilikom unosa polja-->
@@ -39,7 +39,16 @@
                      ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Odabir da li ce se traziti po Name parametru"/>
 
         <!--Button za pretragu koji sam povezao sa SelectCommand-->
-        <Button Content="Search" HorizontalAlignment="Left" Height="41" VerticalAlignment="Center" Width="170" Command="{Binding SearchCommand}" Canvas.Left="486" Canvas.Top="101" FontSize="20"/>
+        <Button Content="Search" 
+                HorizontalAlignment="Left" 
+                Height="41" 
+                VerticalAlignment="Center" 
+                Width="170" 
+                Command="{Binding SearchCommand}" 
+                Canvas.Left="486" 
+                Canvas.Top="101" 
+                FontSize="20"/>
+        
         <!--Tekst za pretragu-->
         <TextBox x:Name="SearchText" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Center" Width="231" Text="{Binding Search}" RenderTransformOrigin="0.375,0.552" Canvas.Left="208" Canvas.Top="102"
                  ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos za filtriranje"/>
@@ -90,10 +99,27 @@
         <Image x:Name="img" Width="220" Height="130" Canvas.Left="857" Canvas.Top="583" 
                Source="{Binding NoviEntitet.Type.Img_src, UpdateSourceTrigger=PropertyChanged}"/>
         <!--Button-->
-        <Button x:Name="btAdd" Content="Add" FontFamily="MS Comic Sans" FontSize="20" Height="45" Width="220" Canvas.Left="1120" Canvas.Top="555" 
-                Command="{Binding AddCommand}" ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za dodavanje novog entiteta"/>
-        <Button x:Name="btDelete" Content="Delete" FontFamily="MS Comic Sans" FontSize="20" Height="45" Width="220" Canvas.Left="1120" Canvas.Top="646" 
-                Command="{Binding DeleteCommand}" ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Dugme za uklanjanje izabranog entiteta iz tabele" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button x:Name="btAdd" 
+                Content="Add" 
+                FontFamily="MS Comic Sans" 
+                FontSize="20" 
+                Height="45" Width="220" 
+                Canvas.Left="1120" Canvas.Top="555" 
+                Command="{Binding AddCommand}" 
+                ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
+                ToolTip="Dugme za dodavanje novog entiteta"
+                Cursor="Hand"/>
+        <Button x:Name="btDelete" 
+                Content="Delete" 
+                FontFamily="MS Comic Sans" 
+                FontSize="20" 
+                Height="45" Width="220" 
+                Canvas.Left="1120" Canvas.Top="646" 
+                Command="{Binding DeleteCommand}" 
+                ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
+                ToolTip="Dugme za uklanjanje izabranog entiteta iz tabele" 
+                HorizontalAlignment="Center" VerticalAlignment="Top"
+                Cursor="Hand"/>
         <!--ToolTip-->
         <CheckBox Content="ToolTip" IsChecked="{Binding ToolTipsBool}" FontFamily="Comic Sans MS" FontSize="15" Canvas.Left="1220" Canvas.Top="0" 
                   Height="20" Width="75">

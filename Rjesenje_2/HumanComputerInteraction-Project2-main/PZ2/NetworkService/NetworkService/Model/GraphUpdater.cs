@@ -68,29 +68,5 @@ namespace NetworkService.Model
 				OnPropertyChanged("FifthBindingPoint");
 			}
 		}
-
-		// Sluzbenici
-		private double firstBindingPointSluzbenici;
-		private double secondBindingPointSluzbenici;
-
-		public double FirstBindingPointSluzbenici
-		{
-			get { return firstBindingPointSluzbenici; }
-			set
-			{
-				firstBindingPointSluzbenici = value;
-				OnPropertyChanged("FirstBindingPointSluzbenici");
-			}
-		}
-
-		public double SecondBindingPointSluzbenici
-		{
-			get { return secondBindingPointSluzbenici; }
-			set
-			{
-				secondBindingPointSluzbenici = value;
-				OnPropertyChanged("SecondBindingPointSluzbenici");
-			}
-		}
 	}
 }
