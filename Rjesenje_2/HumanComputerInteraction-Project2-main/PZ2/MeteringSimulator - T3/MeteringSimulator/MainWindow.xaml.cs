@@ -45,12 +45,12 @@ namespace MeteringSimulator
             {
                 //Pita koliko aplikacija ima objekata
                 //Request
-                Int32 port = 25590;
+                Int32 port = 25565;
                 TcpClient client = new TcpClient("localhost", port);
                 Byte[] data = System.Text.Encoding.ASCII.GetBytes("Need object count");
                 NetworkStream stream = client.GetStream();
                 stream.Write(data, 0, data.Length);
-                
+
                 //Obrada odgovora
                 //Response
                 Byte[] responseData = new Byte[1024];
@@ -95,7 +95,7 @@ namespace MeteringSimulator
             {
                 //Slanje nove vrednosti objekta
                 //Request
-                Int32 port = 25590;
+                Int32 port = 25565;
                 TcpClient client = new TcpClient("localhost", port);
                 int rInt = r.Next(0, numObjects); //Brojimo od nule, maxValue nije ukljucen u range
                 objectNum = rInt;
@@ -124,7 +124,5 @@ namespace MeteringSimulator
             System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             Application.Current.Shutdown();
         }
-
-      
     }
 }

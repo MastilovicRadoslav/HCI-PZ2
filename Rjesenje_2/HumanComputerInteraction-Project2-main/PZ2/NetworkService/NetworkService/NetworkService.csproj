@@ -67,6 +67,7 @@
     <Compile Include="Helpers\ValidationErrors.cs" />
     <Compile Include="Model\CanvasInfo.cs" />
     <Compile Include="Model\Entitie.cs" />
+    <Compile Include="Model\GraphUpdater.cs" />
     <Compile Include="Model\Line.cs" />
     <Compile Include="Model\Type.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />

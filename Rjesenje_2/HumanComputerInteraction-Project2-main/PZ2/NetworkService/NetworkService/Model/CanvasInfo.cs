@@ -51,13 +51,17 @@ namespace NetworkService.Model
                     return Brushes.GhostWhite;
             }
         }
-        public string Text { get => Entitet.Name != null ? "ID: " + Entitet.Id + " Name: " + Entitet.Name : ""; }
+        public string Text { get => Entitet.Name != null ? "Id: " + Entitet.Id + " Name: " + Entitet.Name + "Type: " + Entitet.Type.Name : ""; }
         public string Foreground { get => Uslov() ? "Blue" : "Red"; }
         public bool Uslov()
         {
-            //if ((Entitet.Type.Name.Equals("iA") && Entitet.Valued > 15000) || (Entitet.Type.Name.Equals("iB") && Entitet.Valued > 7000))
-            //    return false;
-          
+            if (Entitet.Type != null)
+            {
+                if ((Entitet.Type.Name.Contains("iA") && Entitet.Valued > 15000) || (Entitet.Type.Name.Contains("iB") && Entitet.Valued > 7000))
+                {
+                    return false;
+                }
+            }
         
            return true;
         

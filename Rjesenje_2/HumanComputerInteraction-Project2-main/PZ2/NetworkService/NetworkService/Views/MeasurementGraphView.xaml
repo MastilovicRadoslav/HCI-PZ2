@@ -5,10 +5,96 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NetworkService.Views"
              xmlns:viewModel="clr-namespace:NetworkService.ViewModel"
+             xmlns:data="clr-namespace:NetworkService.Model"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1400">
+
     <UserControl.DataContext>
         <viewModel:MeasurementGraphViewModel/>
     </UserControl.DataContext>
-   
+
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type data:Entitie}">
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--title-->
+        <TextBlock Grid.Column="1" 
+                   HorizontalAlignment="Center" 
+                   Text="Measurement Graph" 
+                   FontWeight="SemiBold"
+                   FontSize="50" 
+                   Margin="0 30 0 0" 
+                   Grid.RowSpan="2" 
+                   VerticalAlignment="Top"
+                   FontFamily="Comic sans ms" />
+
+        <!--y values-->
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,290,188,0" Height="282" Width="16" Grid.RowSpan="2">
+            <TextBlock Text="10" Margin="0 60 0 0"/>
+            <TextBlock Text="8" Margin="0 25 0 0"/>
+            <TextBlock Text="6" Margin="0 24 0 0"/>
+            <TextBlock Text="4" Margin="0 23 0 0"/>
+            <TextBlock Text="2" Margin="0 25 0 0"/>
+            <TextBlock Text="0" Margin="0 24 0 0"/>
+        </StackPanel>
+
+        <!--from last-->
+        <!--<TextBlock  Text="(val ->)" Grid.Row="2" VerticalAlignment="Top"/>-->
+
+        <StackPanel Margin="330,-50,0,0" Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="2" HorizontalAlignment="Left" Width="291" Height="20" Grid.ColumnSpan="2">
+            <TextBlock HorizontalAlignment="Left" Text="1st"/>
+            <TextBlock Text="2nd" Margin="50 0 0 0"/>
+            <TextBlock Text="3rd" Margin="45 0 0 0"/>
+            <TextBlock Text="4th" Margin="50 0 0 0"/>
+            <TextBlock Text="5th" Margin="48 0 0 0"/>
+
+        </StackPanel>
+
+        <Grid  Width="617" Height="61" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="60" Canvas.Top="-371" Margin="154,-100,0,0" Grid.Row="1" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="292*"/>
+                <ColumnDefinition Width="293*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Entity ID:" FontSize="20" Foreground="Black" FontWeight="Bold" VerticalAlignment="Center" Margin="0,8,202,16"/>
+            <ComboBox ItemsSource="{Binding ComboBoxData}" SelectedValue="{Binding SelectedGeneratorType, UpdateSourceTrigger=PropertyChanged}" Width="147" Height="35" Margin="106,10,0,16" HorizontalAlignment="Left"/>
+            <Button Background="Gray" Foreground="White" FontWeight="Bold" Content="Show" Width="150" Height="35" Margin="50,10,0,16" Command="{Binding ShowCommand}" HorizontalAlignment="Left" Grid.Column="1"/>
+        </Grid>
+
+        <Canvas Width="350" Height="270" Background="Transparent" HorizontalAlignment="Left" Margin="288,300,0,61" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <!-- Referentne linije vrednosti -->
+            <Line X1="10" Y1="260" X2="340" Y2="260" Stroke="Black" StrokeThickness="2"/>
+            <Line X1="10" Y1="220" X2="340" Y2="220" Stroke="Black" StrokeThickness="2"/>
+            <Line X1="10" Y1="180" X2="340" Y2="180" Stroke="Black" StrokeThickness="2"/>
+            <Line X1="10" Y1="140" X2="340" Y2="140" Stroke="Black" StrokeThickness="2"/>
+            <Line X1="10" Y1="100" X2="340" Y2="100" Stroke="Black" StrokeThickness="2"/>
+            <Line X1="10" Y1="60" X2="340" Y2="60"   Stroke="Black" StrokeThickness="2"/>
+
+            <!-- Graf -->
+            <Line X1="36" X2="36" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=FirstBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
+            <Line X1="102" X2="102" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=SecondBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
+            <Line X1="168" X2="168" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=ThirdBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
+            <Line X1="236" X2="236" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=FourthBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
+            <Line X1="300" X2="300" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=FifthBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
+
+
+            <!-- Dozvoljena granica -->
+            <Line X1="15" Y1="120" X2="335" Y2="120" Stroke="Red" StrokeDashArray="2, 4" Canvas.Top="40"/>
+            <Line X1="15" Y1="160" X2="335" Y2="160" Stroke="Red" StrokeDashArray="2, 4" Canvas.Top="81"/>
+        </Canvas>
+    </Grid>
+
 </UserControl>

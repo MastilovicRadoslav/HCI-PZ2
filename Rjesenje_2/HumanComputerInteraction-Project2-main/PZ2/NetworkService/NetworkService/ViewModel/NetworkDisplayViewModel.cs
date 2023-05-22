@@ -17,7 +17,7 @@ namespace NetworkService.ViewModel
 {
     public class NetworkDisplayViewModel : BindableBase
     {
-        public static void RemoveFromList(Entitie e)
+        public static void RemoveFromList(Entitie e)      //Izbrisan na prvom prozoru, izbrisi i ovdje
         {
             foreach (Entitie entitet in EntitetList)
                 if (entitet.Id == e.Id)
@@ -26,7 +26,7 @@ namespace NetworkService.ViewModel
                     return;
                 }
 
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 12; i++)                  //Izbrisi i liniju za taj entitet
                 if (Canvases[i].Entitet.Id == e.Id)
                 {
                     foreach (int id in Canvases[i].Lines)
@@ -36,7 +36,7 @@ namespace NetworkService.ViewModel
                 }
         }
 
-        public static void UpdateList(Entitie e)
+        public static void UpdateList(Entitie e)           //Azuriraj listu
         {
             for (int i = 0; i < EntitetList.Count; i++)
                 if (EntitetList[i].Id == e.Id)
@@ -45,15 +45,15 @@ namespace NetworkService.ViewModel
                     return;
                 }
 
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 12; i++)                   //Kao i liniiju
                 if (Canvases[i].Entitet.Id == e.Id)
                 {
                     Canvases[i].Entitet = e;
                     return;
                 }
         }
-        public static ObservableCollection<Entitie> EntitetList { get; set; }
-        public static ObservableCollection<CanvasInfo> Canvases { get; set; }
+        public static ObservableCollection<Entitie> EntitetList { get; set; }     //Lista entiteta u koju dodajem one koje su u tabeli na prvom prozoru
+        public static ObservableCollection<CanvasInfo> Canvases { get; set; }     //Kanvas na slici da bude ono ao greska i 
         public static ObservableCollection<Line> Lines { get; set; }
         public MyICommand<ListView> SelectionChangedCommand { get; set; }
         public MyICommand MouseLeftButtonUpCommand { get; set; }
