@@ -18,11 +18,10 @@ namespace NetworkService.ViewModel
         //Prozori i manipulacija
         public MyICommand<string> NavCommand { get; private set; }
         public MyICommand ChangeCommand { get; set; }
-		public MyICommand<Window> CloseWindowCommand { get; private set; }
 
-		NetworkEntitiesViewModel networkEntitiesViewModel = new NetworkEntitiesViewModel();
-        MeasurementGraphViewModel measurementGraphViewModel = new MeasurementGraphViewModel();
-        NetworkDisplayViewModel networkDisplayViewModel = new NetworkDisplayViewModel();
+         NetworkEntitiesViewModel networkEntitiesViewModel = new NetworkEntitiesViewModel();
+         MeasurementGraphViewModel measurementGraphViewModel = new MeasurementGraphViewModel();
+         NetworkDisplayViewModel networkDisplayViewModel = new NetworkDisplayViewModel();
 
 
         BindableBase currentViewModel;
@@ -43,8 +42,7 @@ namespace NetworkService.ViewModel
             createListener(); //Povezivanje sa serverskom aplikacijom
             NavCommand = new MyICommand<string>(OnNav);
             ChangeCommand = new MyICommand(Change);
-			CloseWindowCommand = new MyICommand<Window>(CloseWindow);
-			CurrentViewModel = networkEntitiesViewModel;
+            CurrentViewModel = networkEntitiesViewModel;
         }
         private void Change()
         {
@@ -131,10 +129,5 @@ namespace NetworkService.ViewModel
             listeningThread.IsBackground = true;
             listeningThread.Start();
         }
-
-		private void CloseWindow(Window MainWindow)
-		{
-			MainWindow.Close();
-		}
-	}
+    }
 }

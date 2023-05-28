@@ -135,15 +135,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\Images\iA.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\iB.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Images\black_close.png" />
-    <Resource Include="Resources\Images\red_close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,9 +17,8 @@
         <KeyBinding Command="{Binding AddCommand}" Modifiers="Ctrl" Key="D"/>
         <KeyBinding Command="{Binding HelpCommand}" Modifiers="Ctrl" Key="H"/>
     </UserControl.InputBindings>
-    
     <!--Sve-->
-    <Canvas Width="1400" Height="750"  Background="{StaticResource UIPrimaryColor}" >
+    <Canvas Width="1400" Height="750" Background="AliceBlue" >
         <!--Naslov-->
         <Label Content="NETWORK ENTITIES"  Canvas.Left="434" FontFamily="Comic Sans MS" FontSize="50" Canvas.Top="10"/>
         <!--Greske prilikom unosa polja-->
@@ -42,51 +41,23 @@
         <!--Button za pretragu koji sam povezao sa SelectCommand-->
         <Button Content="Search" 
                 HorizontalAlignment="Left" 
-                Height="45" 
+                Height="41" 
                 VerticalAlignment="Center" 
-                Width="220" 
+                Width="170" 
                 Command="{Binding SearchCommand}" 
                 Canvas.Left="486" 
                 Canvas.Top="101" 
-                FontSize="20"
-                Cursor="Hand">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Background" >
-                        <Setter.Value>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#C8FCEA"/>
-                                <GradientStop Color="#518071" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#278BEF"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Width="220" Height="45" CornerRadius="9" Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+                FontSize="20"/>
         
         <!--Tekst za pretragu-->
         <TextBox x:Name="SearchText" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Center" Width="231" Text="{Binding Search}" RenderTransformOrigin="0.375,0.552" Canvas.Left="208" Canvas.Top="102"
-                 ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos za filtriranje" Background="White" />
+                 ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos za filtriranje"/>
 
-        
         <!--Tabeka sa entitetima koju sam povezao sa PrikazEntiteta i sa Izabran i sa ToolTip-->
         <DataGrid x:Name="dgData" Width="864" Canvas.Left="60" Canvas.Top="186" Height="356" AutoGenerateColumns="False" 
                   CanUserResizeColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" TextBlock.TextAlignment="Center" SelectionMode ="Single"
                   IsReadOnly="True" ItemsSource="{Binding PrikazEntiteta, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Izabran}" 
-                  ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Prikaz postojecih entiteta" BorderThickness="1">
+                  ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Prikaz postojecih entiteta">
             <!--Podesavanje tabele-->
             <DataGrid.Resources>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
@@ -115,7 +86,7 @@
                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25" ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                ToolTip="Unos ID-a za novi entitet koji mora biti jedinstven"/>
         <TextBox x:Name="tbName" Width="228" Canvas.Left="594" Canvas.Top="555" Height="45" Text="{Binding NoviEntitet.Name}"
-                 FontSize="25" FontFamily="Comic Sans MS" ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos naziva za novi entitet" Background="White" BorderThickness="1"/>
+                 FontSize="25" FontFamily="Comic Sans MS" ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos naziva za novi entitet"/>
         <!--Label-->
         <Label Content="Name" FontFamily="Comic Sans MS" FontSize="20" Canvas.Left="490" Canvas.Top="555" Width="72"/>
         <Label Content="ID" FontFamily="Comic Sans MS" FontSize="20" Canvas.Left="62" Canvas.Top="555"/>
@@ -123,7 +94,7 @@
         <!--ComboBox-->
         <ComboBox x:Name="cbChooseType2" Canvas.Left="166" Canvas.Top="646" Width="228" Height="45"
                   ItemsSource="{Binding Tipovi}" DisplayMemberPath="Name" SelectedValue="{Binding NoviEntitet.Type}" 
-                  FontSize="25" FontFamily="Comic Sans MS" ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos tipa za novi entitet" Background="White"/>
+                  FontSize="25" FontFamily="Comic Sans MS" ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos tipa za novi entitet"/>
         <!--Image-->
         <Image x:Name="img" Width="220" Height="130" Canvas.Left="857" Canvas.Top="583" 
                Source="{Binding NoviEntitet.Type.Img_src, UpdateSourceTrigger=PropertyChanged}"/>
@@ -137,33 +108,7 @@
                 Command="{Binding AddCommand}" 
                 ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                 ToolTip="Dugme za dodavanje novog entiteta"
-                Cursor="Hand">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Background" >
-                        <Setter.Value>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#C8FCEA"/>
-                                <GradientStop Color="#518071" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#278BEF"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Width="220" Height="45" CornerRadius="9" Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+                Cursor="Hand"/>
         <Button x:Name="btDelete" 
                 Content="Delete" 
                 FontFamily="MS Comic Sans" 
@@ -174,35 +119,9 @@
                 ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                 ToolTip="Dugme za uklanjanje izabranog entiteta iz tabele" 
                 HorizontalAlignment="Center" VerticalAlignment="Top"
-                Cursor="Hand">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Background" >
-                        <Setter.Value>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#C8FCEA"/>
-                                <GradientStop Color="#518071" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#278BEF"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Width="220" Height="45" CornerRadius="9" Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+                Cursor="Hand"/>
         <!--ToolTip-->
-        <CheckBox Content="ToolTip" IsChecked="{Binding ToolTipsBool}" FontFamily="Comic Sans MS" FontSize="15" Canvas.Left="1230" Canvas.Top="7" 
+        <CheckBox Content="ToolTip" IsChecked="{Binding ToolTipsBool}" FontFamily="Comic Sans MS" FontSize="15" Canvas.Left="1220" Canvas.Top="0" 
                   Height="20" Width="75">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="2" ScaleY="2" />

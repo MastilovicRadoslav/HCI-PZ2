@@ -18,8 +18,8 @@
         <KeyBinding Command="{Binding AutoPlaceCommand}" Modifiers="Ctrl" Key="D"/>
         <KeyBinding Command="{Binding HelpCommand}" Modifiers="Ctrl" Key="H"/>
     </UserControl.InputBindings>
-
-    <Canvas Width="1400" Height="750" Background="{StaticResource UIPrimaryColor}" >
+    
+    <Canvas Width="1400" Height="750" Background="AliceBlue">
         <Label Content="NETWORK DISPLAY" FontFamily="Comic sans ms" FontSize="50" Canvas.Top="10" Canvas.Left="453"/>
         <Canvas Width="1000" Height="600" Canvas.Top="100" Canvas.Left="10" x:Name="CANVAS">
             
@@ -244,368 +244,56 @@
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                     ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
                     Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c0}"
-                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="10" Canvas.Top="165" Cursor="Hand">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" >
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#C8FCEA"/>
-                                    <GradientStop Color="#518071" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#278BEF"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="10" Canvas.Top="165"/>
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                     ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" 
                     Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c1}" 
-                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="270" Canvas.Top="165" Cursor="Hand">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" >
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#C8FCEA"/>
-                                    <GradientStop Color="#518071" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#278BEF"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="270" Canvas.Top="165"/>
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}"
                     ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
                     Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c2}"
-                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="530" Canvas.Top="165" Cursor="Hand">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" >
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#C8FCEA"/>
-                                    <GradientStop Color="#518071" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#278BEF"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="530" Canvas.Top="165"/>
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                     ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
                     Command="{Binding ButtonCommand}" 
                     CommandParameter="{Binding ElementName=c3}"
-                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="790" Canvas.Top="165" Cursor="Hand">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" >
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#C8FCEA"/>
-                                    <GradientStop Color="#518071" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#278BEF"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="790" Canvas.Top="165"/>
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                     ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
                     Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c4}" 
-                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="10" Canvas.Top="365" Cursor="Hand">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" >
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#C8FCEA"/>
-                                    <GradientStop Color="#518071" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#278BEF"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="10" Canvas.Top="365"/>
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                     ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
                     Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c5}"
-                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="270" Canvas.Top="365" Cursor="Hand">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" >
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#C8FCEA"/>
-                                    <GradientStop Color="#518071" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#278BEF"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="270" Canvas.Top="365"/>
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                     ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
                     Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c6}"
-                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="530" Canvas.Top="365" Cursor="Hand">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" >
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#C8FCEA"/>
-                                    <GradientStop Color="#518071" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#278BEF"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="530" Canvas.Top="365"/>
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                     ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" 
                     Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c7}"
-                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="790" Canvas.Top="365" Cursor="Hand">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" >
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#C8FCEA"/>
-                                    <GradientStop Color="#518071" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#278BEF"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="790" Canvas.Top="365"/>
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                     ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" 
                     Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c8}"
-                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="10" Canvas.Top="565" Cursor="Hand">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" >
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#C8FCEA"/>
-                                    <GradientStop Color="#518071" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#278BEF"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="10" Canvas.Top="565"/>
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                     ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
                     Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c9}"
-                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="270" Canvas.Top="565" Cursor="Hand">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" >
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#C8FCEA"/>
-                                    <GradientStop Color="#518071" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#278BEF"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="270" Canvas.Top="565"/>
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                     ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" 
                     Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c10}"
-                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="530" Canvas.Top="565" Cursor="Hand">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" >
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#C8FCEA"/>
-                                    <GradientStop Color="#518071" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#278BEF"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="530" Canvas.Top="565"/>
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                     ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" 
                     Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c11}"
-                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="790" Canvas.Top="565" Cursor="Hand">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" >
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#C8FCEA"/>
-                                    <GradientStop Color="#518071" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#278BEF"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                    Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="790" Canvas.Top="565"/>
         </Canvas>
         
         <!--Lista-->
-        <ListView x:Name="lvList" Width="300" Height="330" Canvas.Left="1060" Canvas.Top="110" BorderThickness="3px" 
+        <ListView x:Name="lvList" Width="300" Height="330" Canvas.Left="1060" Canvas.Top="100" BorderThickness="3px" 
                   ItemsSource="{Binding EntitetList}" SelectedItem="{Binding SelectedEntitet}" FontFamily="Comic Sans MS" FontSize="15"
                   ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Lista entiteta">
             <i:Interaction.Triggers>

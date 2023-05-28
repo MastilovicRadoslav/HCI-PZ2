@@ -24,7 +24,7 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <Grid Background="{StaticResource UIPrimaryColor}" >
+    <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -78,36 +78,7 @@
             </Grid.ColumnDefinitions>
             <Label Content="Entity ID:" FontSize="20" Foreground="Black" FontWeight="Bold" VerticalAlignment="Center" Margin="0,8,202,16"/>
             <ComboBox ItemsSource="{Binding ComboBoxData}" SelectedValue="{Binding SelectedSaobracajType, UpdateSourceTrigger=PropertyChanged}" Width="147" Height="35" Margin="106,10,0,16" HorizontalAlignment="Left" ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos za pregled na grafiku"/>
-            <Button Foreground="White" 
-                    FontWeight="Bold" 
-                    Content="Show" Width="200" Height="35" Margin="50,10,0,16" 
-                    Command="{Binding ShowCommand}" HorizontalAlignment="Left" Grid.Column="1" Cursor="Hand">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" >
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#C8FCEA"/>
-                                    <GradientStop Color="#518071" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#278BEF"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+            <Button Background="Gray" Foreground="White" FontWeight="Bold" Content="Show" Width="150" Height="35" Margin="50,10,0,16" Command="{Binding ShowCommand}" HorizontalAlignment="Left" Grid.Column="1"/>
         </Grid>
 
         <Canvas Width="350" Height="270" Background="Transparent" HorizontalAlignment="Left" Margin="288,300,0,61" Grid.RowSpan="2" Grid.ColumnSpan="2">
@@ -131,7 +102,7 @@
             <Line X1="15" Y1="120" X2="335" Y2="120" Stroke="Red" StrokeDashArray="2, 4" Canvas.Top="-10"/>
             <Line X1="15" Y1="160" X2="335" Y2="160" Stroke="Red" StrokeDashArray="2, 4" Canvas.Top="35"/>
 
-            <CheckBox Content="ToolTip" IsChecked="{Binding ToolTipsBool}" FontFamily="Comic Sans MS" FontSize="15" Canvas.Left="955" Canvas.Top="-284" 
+            <CheckBox Content="ToolTip" IsChecked="{Binding ToolTipsBool}" FontFamily="Comic Sans MS" FontSize="15" Canvas.Left="944" Canvas.Top="-284" 
                   Height="20" Width="74">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="2" ScaleY="2" />
