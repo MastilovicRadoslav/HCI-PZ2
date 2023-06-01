@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MeteringSimulator"
         mc:Ignorable="d"
-        Title="Metering Simulator" Height="350" Width="525" Loaded="Window_Loaded" WindowStyle="None">
+        Title="Metering Simulator" Height="350" Width="525" Loaded="Window_Loaded">
     <Grid Background="Black">
         <DockPanel>
             <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
