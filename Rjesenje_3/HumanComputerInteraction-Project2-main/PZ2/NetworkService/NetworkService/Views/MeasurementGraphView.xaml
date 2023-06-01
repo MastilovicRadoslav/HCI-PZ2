@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="NetworkService.Views.MeasurementGraphView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NetworkService.Views"
+             xmlns:viewModel="clr-namespace:NetworkService.ViewModel"
+             xmlns:data="clr-namespace:NetworkService.Model"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1400">
+
+    <UserControl.DataContext>
+        <viewModel:MeasurementGraphViewModel/>
+    </UserControl.DataContext>
+
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding HelpCommand}" Modifiers="Ctrl" Key="H"/>
+        <KeyBinding Command="{Binding ShowCommand}" Modifiers="Ctrl" Key="S"/>
+
+    </UserControl.InputBindings>
+
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type data:Entitie}">
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource UIPrimaryColor}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--title-->
+        <TextBlock Grid.Column="1" 
+                   HorizontalAlignment="Center" 
+                   Text="Measurement Graph" 
+                   FontSize="50" 
+                   Margin="0 30 0 0" 
+                   Grid.RowSpan="2" 
+                   VerticalAlignment="Top"
+                    FontFamily="Comic Sans MS"  />
+
+        <!--y values-->
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,290,180,0" Height="282" Width="35" Grid.RowSpan="2">
+            <TextBlock Text="18500" Margin="0 60 0 0"/>
+            <TextBlock Text="15200" Margin="0 25 0 0"/>
+            <TextBlock Text="11900" Margin="0 24 0 0"/>
+            <TextBlock Text="8600" Margin="0 23 0 0"/>
+            <TextBlock Text="5300" Margin="0 25 0 0"/>
+            <TextBlock Text="2000" Margin="0 24 0 0"/>
+        </StackPanel>
+
+        <!--from last-->
+        <!--<TextBlock  Text="(val ->)" Grid.Row="2" VerticalAlignment="Top"/>-->
+
+        <StackPanel Margin="305,-50,0,0" Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="2" HorizontalAlignment="Left" Width="350" Height="20" Grid.ColumnSpan="2">
+            <TextBlock HorizontalAlignment="Left" Text="10:15" Margin="5 0 0 0"/>
+            <TextBlock Text="10:20" Margin="45 0 0 0"/>
+            <TextBlock Text="10:25" Margin="40 0 0 0"/>
+            <TextBlock Text="10:30" Margin="40 0 0 0"/>
+            <TextBlock Text="10:30" Margin="30 0 0 0"/>
+
+
+        </StackPanel>
+
+        <Grid  Width="617" Height="61" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="60" Canvas.Top="-371" Margin="154,-100,0,0" Grid.Row="1" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="292*"/>
+                <ColumnDefinition Width="293*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Entity ID:" FontSize="20" Foreground="Black" FontWeight="Bold" VerticalAlignment="Center" Margin="0,8,202,16"/>
+            <ComboBox ItemsSource="{Binding ComboBoxData}" SelectedValue="{Binding SelectedSaobracajType, UpdateSourceTrigger=PropertyChanged}" Width="147" Height="35" Margin="106,10,0,16" HorizontalAlignment="Left" ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos za pregled na grafiku"/>
+            <Button Foreground="White" 
+                    FontWeight="Bold" 
+                    Content="Show" Width="200" Height="35" Margin="50,10,0,16" 
+                    Command="{Binding ShowCommand}" HorizontalAlignment="Left" Grid.Column="1" Cursor="Hand">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" >
+                            <Setter.Value>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#C8FCEA"/>
+                                    <GradientStop Color="#518071" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#278BEF"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+
+        <Canvas Width="350" Height="270" Background="Transparent" HorizontalAlignment="Left" Margin="288,300,0,61" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <!-- Referentne linije vrednosti -->
+            <Line X1="10" Y1="260" X2="340" Y2="260" Stroke="Black" StrokeThickness="2"/>
+            <Line X1="10" Y1="220" X2="340" Y2="220" Stroke="Black" StrokeThickness="2"/>
+            <Line X1="10" Y1="180" X2="340" Y2="180" Stroke="Black" StrokeThickness="2"/>
+            <Line X1="10" Y1="140" X2="340" Y2="140" Stroke="Black" StrokeThickness="2"/>
+            <Line X1="10" Y1="100" X2="340" Y2="100" Stroke="Black" StrokeThickness="2"/>
+            <Line X1="10" Y1="60" X2="340" Y2="60"   Stroke="Black" StrokeThickness="2"/>
+
+            <!-- Graf -->
+            <Line X1="36" X2="36" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=FirstBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
+            <Line X1="102" X2="102" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=SecondBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
+            <Line X1="168" X2="168" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=ThirdBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
+            <Line X1="236" X2="236" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=FourthBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
+            <Line X1="300" X2="300" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=FifthBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
+
+
+            <!-- Dozvoljena granica -->
+            <Line X1="15" Y1="120" X2="335" Y2="120" Stroke="Red" StrokeDashArray="2, 4" Canvas.Top="-10"/>
+            <Line X1="15" Y1="160" X2="335" Y2="160" Stroke="Red" StrokeDashArray="2, 4" Canvas.Top="35"/>
+
+            <CheckBox Content="ToolTip" IsChecked="{Binding ToolTipsBool}" FontFamily="Comic Sans MS" FontSize="15" Canvas.Left="955" Canvas.Top="-284" 
+                  Height="20" Width="74">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <!--Help-->
+            <Button Content="🛈 Help" FontFamily="Comic Sans MS" FontSize="30" Canvas.Left="955" Canvas.Top="-239" BorderThickness="0" Background="Transparent"
+                Height="50" Command="{Binding HelpCommand}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Canvas Width="408" Canvas.Left="648" Canvas.Top="44" Height="217" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <TextBlock Text="{Binding Path=HelpText, Mode=OneWay}" Width="408" Height="222"
+                           TextWrapping="Wrap" FontSize="14" FontFamily="Comic Sans MS" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            </Canvas>
+        </Canvas>
+    </Grid>
+
+
+
+</UserControl>
