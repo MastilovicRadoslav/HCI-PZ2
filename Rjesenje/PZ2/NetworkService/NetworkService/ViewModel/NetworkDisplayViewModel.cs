@@ -1,23 +1,14 @@
-﻿using NetworkService.Model;
-using System;
+﻿using NetworkService.Helpers;
+using NetworkService.Model;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using NetworkService.Views;
-using System.Windows.Input;
-using NetworkService.Helpers;
 
 namespace NetworkService.ViewModel
 {
 	public class NetworkDisplayViewModel : BindableBase
 	{
-		// Metoda za uklanjanje entiteta iz liste
 		public static void RemoveFromList(Entitie e)      //Izbrisan na prvom prozoru, izbrisi i ovdje
 		{
 			foreach (Entitie entitet in EntitetList)
@@ -31,13 +22,12 @@ namespace NetworkService.ViewModel
 				if (Canvases[i].Entitet.Id == e.Id)
 				{
 					foreach (int id in Canvases[i].Lines)
-						RemoveFromList(id);
+						RemoveLine(id);
 					Canvases[i] = new CanvasInfo(i);
 					return;
 				}
 		}
 
-		// Metoda za ažuriranje liste
 		public static void UpdateList(Entitie e)           //Azuriraj listu
 		{
 			for (int i = 0; i < EntitetList.Count; i++)
@@ -54,42 +44,19 @@ namespace NetworkService.ViewModel
 					return;
 				}
 		}
-
-		// Lista entiteta
 		public static ObservableCollection<Entitie> EntitetList { get; set; }     //Lista entiteta u koju dodajem one koje su u tabeli na prvom prozoru
-
-		// Lista kanvasa
 		public static ObservableCollection<CanvasInfo> Canvases { get; set; }     //Kanvas na slici da bude ono ao greska i 
-
-		// Lista linija
 		public static ObservableCollection<Line> Lines { get; set; }
-
-		// Komanda koja se izvršava kada se promeni selekcija u ListView kontroli
 		public MyICommand<ListView> SelectionChangedCommand { get; set; }
-
-		// Komanda koja se izvršava kada se otpusti levi taster miša
 		public MyICommand MouseLeftButtonUpCommand { get; set; }
-
-		// Komanda koja se izvršava kada se pritisne dugme na Canvas kontroli
 		public MyICommand<Canvas> ButtonCommand { get; set; }
-
-		// Komanda koja se izvršava kada se pređe mišem preko Canvas kontrole
 		public MyICommand<Canvas> DragOverCommand { get; set; }
-
-		// Komanda koja se izvršava kada se nešto prevuče na Canvas kontrolu
 		public MyICommand<Canvas> DropCommand { get; set; }
-
-		// Komanda koja se izvršava kada se pritisne levi taster miša na Canvas kontroli
 		public MyICommand<Canvas> MouseLeftButtonDownCommand { get; set; }
-
-		// Komanda za automatsko pozicioniranje entiteta
 		public MyICommand AutoPlaceCommand { get; set; }
-
-		// Komanda za prikazivanje pomoći
 		public MyICommand HelpCommand { get; set; }
 
 		bool toolTipsBool;
-		// Vrednost za prikazivanje ili skrivanje ToolTips-a
 		public bool ToolTipsBool
 		{
 			get => toolTipsBool;
@@ -103,7 +70,6 @@ namespace NetworkService.ViewModel
 
 		string helpText;
 		static string saveHelp = "";
-		// Tekst koji se prikazuje u Help sekciji
 		public string HelpText
 		{
 			get => helpText;
@@ -114,10 +80,8 @@ namespace NetworkService.ViewModel
 				OnPropertyChanged("HelpText");
 			}
 		}
-
 		bool dragging = false;
 		Entitie selectedEntitet;
-		// Selektovani entitet
 		public Entitie SelectedEntitet
 		{
 			get => selectedEntitet;
@@ -126,10 +90,10 @@ namespace NetworkService.ViewModel
 				selectedEntitet = value;
 				OnPropertyChanged("SelectedEntitet");
 			}
+
 		}
 
 		CanvasInfo currentCanvas;
-		// Trenutno odabrani Canvas
 		public CanvasInfo CurrentCanvas
 		{
 			get => currentCanvas;
@@ -140,12 +104,13 @@ namespace NetworkService.ViewModel
 			}
 		}
 
+
+
 		bool Cmp(CanvasInfo c)
 		{
 			return CurrentCanvas.Entitet == c.Entitet && CurrentCanvas.Taken == c.Taken && CurrentCanvas.Text == c.Text;
 		}
 
-		// Metoda za automatsko pozicioniranje entiteta
 		private void OnAutoPlace()
 		{
 			List<Entitie> temp = new List<Entitie>();
@@ -166,7 +131,6 @@ namespace NetworkService.ViewModel
 				EntitetList.Remove(e);
 		}
 
-		// Konstruktor klase
 		public NetworkDisplayViewModel()
 		{
 			if (EntitetList == null)
@@ -192,87 +156,148 @@ namespace NetworkService.ViewModel
 			ToolTipsBool = MainWindowViewModel.UseToolTips;
 		}
 
-		// Metoda za prikazivanje ili skrivanje ToolTips-a
 		private void OnHelp()
 		{
-			if (ToolTipsBool)
+			if (HelpText == "")
 			{
-				ToolTipsBool = false;
-				HelpText = "";
+				HelpText = "Prečice su sledeće:\nCTRL+D -> Automatsko stavljanje entiteta na mesta\nCtrl+H -> Help\nCtrl+Tab pomjeranje izmedju prozora" +
+						   "Prevlačenjem entiteta iz liste u odabrano polje će rezultirati prebacivanjem entiteta iz liste" +
+						   " u to polje za prikaz trenutnog stanja tog entiteta.Prevlačenjem entiteta iz polja" +
+						   " u polje ce rezultirati prebacivanjem entiteta iz polja u polje.\nPovlačenje linije" +
+						   " izmedju 2 entiteta se radi povlačenjem prvog zauzetog polja na drugo polje.";
 			}
 			else
 			{
-				ToolTipsBool = true;
-				HelpText = saveHelp;
+				HelpText = "";
 			}
 		}
 
-		// Metoda koja se izvršava kada se otpusti levi taster miša
+		void ChangeLine(int id, int x, int y, int nx, int ny)
+		{
+			for (int i = 0; i < Lines.Count; i++)
+			{
+				if (Lines[i].Id == id)
+				{
+					if (Lines[i].X1 == x && Lines[i].Y1 == y)
+					{
+						Lines[i].X1 = nx;
+						Lines[i].Y1 = ny;
+					}
+					else
+					{
+						Lines[i].X2 = nx;
+						Lines[i].Y2 = ny;
+					}
+					return;
+				}
+			}
+		}
+
+		private void Drop(Canvas obj)
+		{
+			if (SelectedEntitet != null)
+			{
+				int id = int.Parse(obj.Name.Substring(1));
+				if (!Canvases[id].Taken)
+				{
+					Canvases[id] = new CanvasInfo(SelectedEntitet, true, id);
+					EntitetList.Remove(SelectedEntitet);
+				}
+			}
+			else if (CurrentCanvas != null)
+			{
+				int id = int.Parse(obj.Name.Substring(1));
+				if (!Canvases[id].Taken)
+				{
+					for (int i = 0; i < 12; i++)
+						if (Cmp(Canvases[i]))
+						{
+							Canvases[i] = new CanvasInfo(i);
+							break;
+						}
+					Canvases[id] = new CanvasInfo(CurrentCanvas.Entitet, true, id);
+					foreach (int i in CurrentCanvas.Lines)
+					{
+						ChangeLine(i, CurrentCanvas.X, CurrentCanvas.Y, Canvases[id].X, Canvases[id].Y);
+						Canvases[id].Lines.Add(i);
+					}
+				}
+				else
+				{
+					for (int i = 0; i < 12; i++)
+						if (Cmp(Canvases[i]))
+						{
+							Line line = new Line(Canvases[i].X, Canvases[id].X, Canvases[i].Y, Canvases[id].Y);
+							Lines.Add(line);
+							Canvases[i].Lines.Add(line.Id);
+							Canvases[id].Lines.Add(line.Id);
+							break;
+						}
+				}
+			}
+			MouseLeftButtonUp();
+		}
+
+		private void DragOver(Canvas obj)
+		{
+			int id = int.Parse(obj.Name.Substring(1));
+			if (!Canvases[id].Taken)
+				obj.AllowDrop = true;
+			else
+				obj.AllowDrop = false;
+		}
+
 		private void MouseLeftButtonUp()
 		{
+			SelectedEntitet = null;
+			CurrentCanvas = null;
 			dragging = false;
 		}
 
-		// Metoda koja se izvršava kada se pritisne levi taster miša na Canvas kontroli
-		private void MouseLeftButtonDown(Canvas canvas)
-		{
-			dragging = true;
-			if (canvas.DataContext is CanvasInfo canvasInfo)
-			{
-				CurrentCanvas = canvasInfo;
-				SelectedEntitet = CurrentCanvas.Entitet;
-			}
-		}
 
-		// Metoda koja se izvršava kada se promeni selekcija u ListView kontroli
-		private void SelectionChanged(ListView listView)
+		private void MouseLeftButtonDown(Canvas c)
 		{
-			if (listView.SelectedItem is Entitie entitet)
+			int id = int.Parse(c.Name.Substring(1));
+			if (Canvases[id].Taken)
 			{
-				SelectedEntitet = entitet;
-				CurrentCanvas = Canvases.FirstOrDefault(c => c.Entitet == entitet);
-			}
-		}
-
-		// Metoda koja se izvršava kada se nešto prevuče na Canvas kontrolu
-		private void Drop(Canvas canvas)
-		{
-			if (canvas.DataContext is CanvasInfo canvasInfo && SelectedEntitet != null)
-			{
-				if (canvasInfo.Taken && CurrentCanvas != canvasInfo)
-					RemoveFromList(canvasInfo.Entitet);
-
-				if (!canvasInfo.Taken)
+				CurrentCanvas = Canvases[id];
+				if (!dragging)
 				{
-					canvasInfo.Entitet = SelectedEntitet;
-					canvasInfo.Taken = true;
-					RemoveFromList(SelectedEntitet);
-					CurrentCanvas = canvasInfo;
+					dragging = true;
+					DragDrop.DoDragDrop(c, CurrentCanvas, DragDropEffects.Copy | DragDropEffects.Move);
 				}
 			}
 		}
 
-		// Metoda koja se izvršava kada se pređe mišem preko Canvas kontrole
-		private void DragOver(Canvas canvas)
+		static void RemoveLine(int id)
 		{
-			if (canvas.DataContext is CanvasInfo canvasInfo && SelectedEntitet != null)
+			for (int i = 0; i < Lines.Count; i++)
 			{
-				if (!canvasInfo.Taken)
+				if (Lines[i].Id == id)
 				{
-					canvasInfo.Entitet = SelectedEntitet;
-					canvasInfo.Taken = true;
-					RemoveFromList(SelectedEntitet);
-					CurrentCanvas = canvasInfo;
+					Lines.RemoveAt(i);
+					return;
 				}
 			}
 		}
-
-		// Metoda koja se izvršava kada se pritisne dugme na Canvas kontroli
-		private void ButtonCommandFreeing(Canvas canvas)
+		private void ButtonCommandFreeing(Canvas obj)
 		{
-			if (canvas.DataContext is CanvasInfo canvasInfo)
+			int id = int.Parse(obj.Name.Substring(1));
+			if (Canvases[id].Taken)
 			{
-				RemoveFromList(canvasInfo.Entitet);
+				foreach (int i in Canvases[id].Lines)
+					RemoveLine(i);
+				EntitetList.Add(Canvases[id].Entitet);
+				Canvases[id] = new CanvasInfo(id);
+			}
+		}
+
+		private void SelectionChanged(ListView obj)
+		{
+			if (!dragging)
+			{
+				dragging = true;
+				DragDrop.DoDragDrop(obj, SelectedEntitet, DragDropEffects.Copy | DragDropEffects.Move);
 			}
 		}
 	}

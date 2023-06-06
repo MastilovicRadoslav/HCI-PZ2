@@ -1,16 +1,11 @@
 ﻿using NetworkService.Helpers;
 using NetworkService.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NetworkService.ViewModel
 {
-    public class MeasurementGraphViewModel : BindableBase
-    {
+	public class MeasurementGraphViewModel : BindableBase
+	{
 		public static GraphUpdater ElementHeights { get; set; } = new GraphUpdater();
 		private static int idForShow { get; set; } = -1;
 
