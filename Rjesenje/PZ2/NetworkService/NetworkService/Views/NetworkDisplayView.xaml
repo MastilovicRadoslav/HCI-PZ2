@@ -9,39 +9,45 @@
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1400">
-
+    <!--Prikaz-->
     <UserControl.DataContext>
         <viewModel:NetworkDisplayViewModel/>
     </UserControl.DataContext>
-    
+    <!--ToolTip-->
     <UserControl.InputBindings>
         <KeyBinding Command="{Binding AutoPlaceCommand}" Modifiers="Ctrl" Key="D"/>
         <KeyBinding Command="{Binding HelpCommand}" Modifiers="Ctrl" Key="H"/>
     </UserControl.InputBindings>
-
+    <!--Glavni kanvas-->
     <Canvas Width="1400" Height="750" Background="{StaticResource UIPrimaryColor}" >
         <Label Content="NETWORK DISPLAY" FontFamily="Comic sans ms" FontSize="50" Canvas.Top="10" Canvas.Left="453"/>
         <Canvas Width="1000" Height="600" Canvas.Top="100" Canvas.Left="10" x:Name="CANVAS">
             
             <!--PlaceHolderi-->
             <Canvas AllowDrop="True" x:Name="c0" Width="200" Height="150" Canvas.Left="10" Canvas.Top="10" Background="{Binding Canvases[0].Background}" ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Prikaz stanja entiteta">
+                <!-- Prikazuje tekst na platnu -->
                 <TextBlock Width="200" Text="{Binding Canvases[0].Text}" Foreground="{Binding Canvases[0].Foreground}" TextAlignment="Center" FontSize="15" FontFamily="Comic Sans MS" Canvas.Top="110"/>
                 <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="Drop" >
+                    <!-- Postavlja akciju koja se pokreće kada se element prevuče i ispusti na platno -->
+                    <i:EventTrigger EventName="Drop">
                         <i:InvokeCommandAction Command="{Binding DropCommand}" CommandParameter="{Binding ElementName=c0}" />
                     </i:EventTrigger>
-                    <i:EventTrigger EventName="dragOver" >
+                    <!-- Postavlja akciju koja se pokreće kada se prevlači preko platna -->
+                    <i:EventTrigger EventName="dragOver">
                         <i:InvokeCommandAction Command="{Binding DragOverCommand}" CommandParameter="{Binding ElementName=c0}" />
                     </i:EventTrigger>
-                    <i:EventTrigger EventName="MouseLeftButtonUp" >
+                    <!-- Postavlja akciju koja se pokreće kada se levi taster miša otpusti na platnu -->
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
                         <i:InvokeCommandAction Command="{Binding MouseLeftButtonUpCommand}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 <Canvas.InputBindings>
+                    <!-- Definiše vezu između događaja levog klika miša i odgovarajuće komande -->
                     <MouseBinding MouseAction="LeftClick" Command="{Binding MouseLeftButtonDownCommand}" 
-                                  CommandParameter="{Binding ElementName=c0}"/>
+                      CommandParameter="{Binding ElementName=c0}"/>
                 </Canvas.InputBindings>
             </Canvas>
+
             <Canvas AllowDrop="True" x:Name="c1" Width="200" Height="150"  Canvas.Left="270" Canvas.Top="10" Background="{Binding Canvases[1].Background}" ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Prikaz stanja entiteta">
                 <TextBlock Width="200" Text="{Binding Canvases[1].Text}" Foreground="{Binding Canvases[1].Foreground}" TextAlignment="Center" FontSize="15" FontFamily="Comic Sans MS" Canvas.Top="110" />
                 <i:Interaction.Triggers>
@@ -242,11 +248,13 @@
             </Canvas>
             <!--Dugmad-->
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
-                    ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta"
+                    ToolTip="Dugme za oslobađanje mesta za prikaz stanja entiteta"
                     Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c0}"
                     Width="200" Content="FREE" FontSize="20" FontFamily="Comic Sans MS" Canvas.Left="10" Canvas.Top="165" Cursor="Hand">
+                <!-- Stil dugmeta -->
                 <Button.Style>
                     <Style TargetType="Button">
+                        <!-- Postavlja početnu pozadinu dugmeta kao linearni gradijent -->
                         <Setter Property="Background" >
                             <Setter.Value>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -256,6 +264,7 @@
                             </Setter.Value>
                         </Setter>
                         <Style.Triggers>
+                            <!-- Postavlja novu pozadinu dugmeta kada je miš preko njega -->
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="#278BEF"/>
                             </Trigger>
@@ -263,14 +272,17 @@
                     </Style>
                 </Button.Style>
 
+                <!-- Definiše prilagođenu kontrolnu šablonu dugmeta -->
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
+                        <!-- Okvir oko sadržaja dugmeta sa zaobljenim uglovima -->
                         <Border Width="200" Height="35" CornerRadius="9" Background="{TemplateBinding Background}">
                             <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+
             <Button ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                     ToolTip="Dugme za oslobadjanje mesta za prikaz stanja entiteta" 
                     Command="{Binding ButtonCommand}" CommandParameter="{Binding ElementName=c1}" 
@@ -606,18 +618,24 @@
         
         <!--Lista-->
         <ListView x:Name="lvList" Width="300" Height="330" Canvas.Left="1060" Canvas.Top="110" BorderThickness="3px" 
-                  ItemsSource="{Binding EntitetList}" SelectedItem="{Binding SelectedEntitet}" FontFamily="Comic Sans MS" FontSize="15"
-                  ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Lista entiteta">
+          ItemsSource="{Binding EntitetList}" SelectedItem="{Binding SelectedEntitet}" FontFamily="Comic Sans MS" FontSize="15"
+          ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Lista entiteta">
+            <!-- Okruženje za interakcije -->
             <i:Interaction.Triggers>
+                <!-- Kada se promeni selekcija u ListView-u -->
                 <i:EventTrigger EventName="SelectionChanged" >
+                    <!-- Poziva se odgovarajuća komanda pri selekciji promenjenoj i prosleđuje ListView kao parametar -->
                     <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" CommandParameter="{Binding ElementName=lvList}" />
                 </i:EventTrigger>
+                <!-- Kada se levi taster miša otpusti -->
                 <i:EventTrigger EventName="MouseLeftButtonUp" >
+                    <!-- Poziva se odgovarajuća komanda pri otpuštanju levog tastera miša -->
                     <i:InvokeCommandAction Command="{Binding MouseLeftButtonUpCommand}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </ListView>
-        
+
+
         <CheckBox Content="ToolTip" IsChecked="{Binding ToolTipsBool}" FontFamily="Comic Sans MS" FontSize="15" Canvas.Left="1230" Canvas.Top="7" 
                   Height="20" Width="75">
             <CheckBox.LayoutTransform>
@@ -628,19 +646,24 @@
         
         <Button Content="🛈 Help" FontFamily="Comic Sans MS" FontSize="30" Canvas.Left="1230" Canvas.Top="50" BorderThickness="0" Background="Transparent"
                 Height="50" Command="{Binding HelpCommand}" />
-        
         <ItemsControl x:Name="ic" ItemsSource="{Binding Lines}" Canvas.Left="10" Canvas.Top="110">
+            <!-- Resursi za prikaz elemenata -->
             <ItemsControl.Resources>
+                <!-- DataTemplate za prikaz modela Line -->
                 <DataTemplate DataType="{x:Type model:Line}">
+                    <!-- Prikazuje se linija sa svojstvima X1, X2, Y1, Y2, debljinom StrokeThickness i bojom Stroke -->
                     <Line X1="{Binding X1}" X2="{Binding X2}" Y1="{Binding Y1}" Y2="{Binding Y2}" StrokeThickness="5" Stroke="Red"/>
                 </DataTemplate>
             </ItemsControl.Resources>
+            <!-- Panel za prikaz elemenata -->
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
+                    <!-- Koristi se Canvas kao panel sa fiksnom širinom i visinom -->
                     <Canvas Width="1000" Height="600"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
+
         <Canvas Width="300" Canvas.Left="1060" Canvas.Top="468" Height="232">
             <TextBlock Text="{Binding Path=HelpText, Mode=OneWay}" Width="300" Height="254"
                            TextWrapping="Wrap" FontSize="14" FontFamily="Comic Sans MS" Canvas.Top="-24"/>

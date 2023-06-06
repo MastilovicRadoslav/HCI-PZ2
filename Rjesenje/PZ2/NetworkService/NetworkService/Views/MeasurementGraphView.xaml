@@ -111,39 +111,46 @@
 
         <Canvas Width="350" Height="270" Background="Transparent" HorizontalAlignment="Left" Margin="288,300,0,61" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <!-- Referentne linije vrednosti -->
+            <!-- Linije koje predstavljaju referentne vrednosti na grafu -->
             <Line X1="10" Y1="260" X2="340" Y2="260" Stroke="Black" StrokeThickness="2"/>
             <Line X1="10" Y1="220" X2="340" Y2="220" Stroke="Black" StrokeThickness="2"/>
             <Line X1="10" Y1="180" X2="340" Y2="180" Stroke="Black" StrokeThickness="2"/>
             <Line X1="10" Y1="140" X2="340" Y2="140" Stroke="Black" StrokeThickness="2"/>
             <Line X1="10" Y1="100" X2="340" Y2="100" Stroke="Black" StrokeThickness="2"/>
-            <Line X1="10" Y1="60" X2="340" Y2="60"   Stroke="Black" StrokeThickness="2"/>
+            <Line X1="10" Y1="60" X2="340" Y2="60" Stroke="Black" StrokeThickness="2"/>
 
             <!-- Graf -->
+            <!-- Linije koje predstavljaju graf na Canvas-u -->
             <Line X1="36" X2="36" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=FirstBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
             <Line X1="102" X2="102" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=SecondBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
             <Line X1="168" X2="168" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=ThirdBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
             <Line X1="236" X2="236" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=FourthBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
             <Line X1="300" X2="300" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=FifthBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
 
-
             <!-- Dozvoljena granica -->
+            <!-- Linije koje predstavljaju dozvoljene granice -->
             <Line X1="15" Y1="120" X2="335" Y2="120" Stroke="Red" StrokeDashArray="2, 4" Canvas.Top="-10"/>
             <Line X1="15" Y1="160" X2="335" Y2="160" Stroke="Red" StrokeDashArray="2, 4" Canvas.Top="35"/>
 
-            <CheckBox Content="ToolTip" IsChecked="{Binding ToolTipsBool}" FontFamily="Comic Sans MS" FontSize="15" Canvas.Left="955" Canvas.Top="-284" 
-                  Height="20" Width="74">
+            <CheckBox Content="ToolTip" IsChecked="{Binding ToolTipsBool}" FontFamily="Comic Sans MS" FontSize="15" Canvas.Left="955" Canvas.Top="-284" Height="20" Width="74">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="2" ScaleY="2" />
                 </CheckBox.LayoutTransform>
             </CheckBox>
+
             <!--Help-->
+            <!-- Dugme za prikazivanje pomoći -->
             <Button Content="🛈 Help" FontFamily="Comic Sans MS" FontSize="30" Canvas.Left="955" Canvas.Top="-239" BorderThickness="0" Background="Transparent"
-                Height="50" Command="{Binding HelpCommand}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        Height="50" Command="{Binding HelpCommand}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+            <!-- Pomoćni Canvas -->
+            <!-- Canvas koji prikazuje tekst pomoći -->
             <Canvas Width="408" Canvas.Left="648" Canvas.Top="44" Height="217" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <TextBlock Text="{Binding Path=HelpText, Mode=OneWay}" Width="408" Height="222"
-                           TextWrapping="Wrap" FontSize="14" FontFamily="Comic Sans MS" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            TextWrapping="Wrap" FontSize="14" FontFamily="Comic Sans MS" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             </Canvas>
         </Canvas>
+
     </Grid>
 
 

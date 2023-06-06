@@ -11,18 +11,18 @@
     <UserControl.DataContext>
         <viewModel:NetworkEntitiesViewModel/>
     </UserControl.DataContext>
-    <!--ToolTip-->
+    <!--ToolTip, definisem koja komanda i dam kako na tastaturi da pokrenem-->
     <UserControl.InputBindings>
         <KeyBinding Command="{Binding SearchCommand}" Modifiers="Ctrl" Key="F"/>
         <KeyBinding Command="{Binding AddCommand}" Modifiers="Ctrl" Key="D"/>
         <KeyBinding Command="{Binding HelpCommand}" Modifiers="Ctrl" Key="H"/>
     </UserControl.InputBindings>
     
-    <!--Sve-->
+    <!--Sve, boja kao sa vjezbi-->
     <Canvas Width="1400" Height="750"  Background="{StaticResource UIPrimaryColor}" >
         <!--Naslov-->
         <Label Content="NETWORK ENTITIES"  Canvas.Left="434" FontFamily="Comic Sans MS" FontSize="50" Canvas.Top="10"/>
-        <!--Greske prilikom unosa polja-->
+        <!--Greske prilikom unosa polja, entiteti koji se dodavaju pa za njih errori, prosledjujemo klasi za validaciju gresaka-->
         <Label Content="{Binding NoviEntitet.ValidationErrors[Id]}" Foreground="Red" 
                Canvas.Left="62" FontFamily="Comic Sans MS" FontSize="15" Canvas.Top="604" Height="32" Width="377"/>
         <Label Content="{Binding NoviEntitet.ValidationErrors[Type]}" Foreground="Red" 
@@ -77,7 +77,7 @@
             </Button.Template>
         </Button>
         
-        <!--Tekst za pretragu-->
+        <!--Tekst za pretragu povezao sa Search-->
         <TextBox x:Name="SearchText" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Center" Width="231" Text="{Binding Search}" RenderTransformOrigin="0.375,0.552" Canvas.Left="208" Canvas.Top="102"
                  ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos za filtriranje" Background="White" />
 

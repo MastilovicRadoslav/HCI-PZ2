@@ -31,7 +31,7 @@ namespace NetworkService.Model
 			lines = new ObservableCollection<int>(); // Kreiranje nove instance observable kolekcije
 		}
 
-		public Brush Background
+		public Brush Background		 //Slika na Canvas - u
 		{
 			get
 			{
@@ -48,11 +48,11 @@ namespace NetworkService.Model
 			}
 		}
 
-		public string Text { get => Entitet.Name != null ? "Id: " + Entitet.Id + " Name: " + Entitet.Name + "Type: " + Entitet.Type.Name : ""; } // Vraćanje teksta koji prikazuje informacije o entitetu
+		public string Text { get => Entitet.Name != null ? "Id: " + Entitet.Id + " Name: " + Entitet.Name + "Type: " + Entitet.Type.Name : ""; } // Vraćanje teksta koji prikazuje informacije o entitetu, Text na  Canvas - u
 
-		public string Foreground { get => Uslov() ? "Blue" : "Red"; } // Vraćanje boje teksta na osnovu određenog uslova
+		public string Foreground { get => Uslov() ? "Blue" : "Red"; } // Vraćanje boje teksta na osnovu određenog uslova, boja teksta na Canvas - u
 
-		public bool Uslov()
+		public bool Uslov()	//Uslov za boju teksta
 		{
 			if (Entitet.Type != null) // Provera da li entitet ima tip
 			{

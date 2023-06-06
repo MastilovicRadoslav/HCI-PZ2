@@ -17,6 +17,9 @@ namespace NetworkService.ViewModel
 
 		public static double CalculateElementHeight(double value, int index)
 		{
+			// Metoda za izračunavanje visine elementa na grafu
+			// Ako je ID elementa jednak idForShow ili idForShow je -1 (prikazuje se sve),
+			// izračunava se visina elementa na osnovu zadate formule
 			if (idForShow == index || idForShow == -1) { return 60 + (18500 - value) * 0.0108; }
 			return 100;
 		}
@@ -31,10 +34,10 @@ namespace NetworkService.ViewModel
 
 		public MeasurementGraphViewModel()
 		{
-			ToolTipsBool = MainWindowViewModel.UseToolTips;
+			ToolTipsBool = MainWindowViewModel.UseToolTips;	   //ToolTip
 			HelpCommand = new MyICommand(OnHelp);
 			ShowCommand = new MyICommand(OnShow);
-			foreach (Entitie e in NetworkEntitiesViewModel.Entiteti) { ComboBoxData.Add(e.Id); }
+			foreach (Entitie e in NetworkEntitiesViewModel.Entiteti) { ComboBoxData.Add(e.Id); }   //sa prvog prozora ucitaj odje za prikaz
 		}
 
 		//Help
@@ -78,7 +81,7 @@ namespace NetworkService.ViewModel
 			}
 		}
 
-		private int selectedSaobracajType;    // Pamcenje tipa generatora koji smo izabrali. 
+		private int selectedSaobracajType;    // Pamcenje tipa saobracaja koji smo izabrali. 
 		public int SelectedSaobracajType
 		{
 			get { return selectedSaobracajType; }
@@ -99,7 +102,7 @@ namespace NetworkService.ViewModel
 
 		private void OnShow()
 		{
-			idForShow = selectedSaobracajType;
+			idForShow = selectedSaobracajType;	 //id tipa saobracaja za prikaz
 		}
 
 		bool toolTipsBool;                                                  //bool promjenljiva za ToolTip
