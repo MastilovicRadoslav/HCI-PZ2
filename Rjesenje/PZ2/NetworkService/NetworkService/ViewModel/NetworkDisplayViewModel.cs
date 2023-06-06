@@ -241,22 +241,22 @@ namespace NetworkService.ViewModel
 
 			if (SelectedEntitet != null)
 			{
-				// Ako je selektovani entitet postavljen na Canvas
+				// Provera da li je selektovani entitet postavljen na Canvas
 				int id = int.Parse(obj.Name.Substring(1)); // Izdvajanje identifikatora Canvas-a
 				if (!Canvases[id].Taken)
 				{
-					// Postavi selektovani entitet na odabrani Canvas i označi ga kao zauzetog
+					// Postavljanje selektovanog entiteta na odabrani Canvas i označavanje ga kao zauzetog
 					Canvases[id] = new CanvasInfo(SelectedEntitet, true, id);
-					EntitetList.Remove(SelectedEntitet); // Ukloni entitet iz liste EntitetList
+					EntitetList.Remove(SelectedEntitet); // Uklanjanje entiteta iz liste EntitetList
 				}
 			}
 			else if (CurrentCanvas != null)
 			{
-				// Ako postoji trenutni Canvas (entitet je prevučen između Canvas-a)
+				// Provera da li postoji trenutni Canvas (entitet je prevučen između Canvas-a)
 				int id = int.Parse(obj.Name.Substring(1)); // Izdvajanje identifikatora Canvas-a
 				if (!Canvases[id].Taken)
 				{
-					// Pronađi slobodan Canvas za zamenu sa trenutnim Canvas-om
+					// Pronalaženje slobodnog Canvas-a za zamenu sa trenutnim Canvas-om
 					for (int i = 0; i < 12; i++)
 					{
 						if (Cmp(Canvases[i]))
@@ -267,7 +267,7 @@ namespace NetworkService.ViewModel
 						}
 					}
 
-					// Postavi entitet sa trenutnog Canvas-a na odabrani Canvas i označi ga kao zauzetog
+					// Postavljanje entiteta sa trenutnog Canvas-a na odabrani Canvas i označavanje ga kao zauzetog
 					Canvases[id] = new CanvasInfo(CurrentCanvas.Entitet, true, id);
 
 					// Promena linija koje povezuju Canvas-e
@@ -297,6 +297,7 @@ namespace NetworkService.ViewModel
 			}
 			MouseLeftButtonUp(); // Završetak akcije prevlačenja miša
 		}
+
 
 
 

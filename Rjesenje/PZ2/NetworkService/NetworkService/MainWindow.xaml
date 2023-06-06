@@ -16,11 +16,12 @@
         AllowsTransparency="True"
         Name="MainWindowRef"
         >
-    <!--Prikaz glavnog prozora-->
+    <!-- Prikaz glavnog prozora -->
     <Window.DataContext>
         <viewModel:MainWindowViewModel/>
     </Window.DataContext>
-    <!--Opcije za prikaz-->
+
+    <!-- Opcije za prikaz -->
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModel:NetworkEntitiesViewModel}">
             <views:NetworkEntitiesView/>
@@ -32,50 +33,54 @@
             <views:MeasurementGraphView/>
         </DataTemplate>
     </Window.Resources>
-    
+
     <!---->
+
     <Window.InputBindings>
         <KeyBinding Command="{Binding ChangeCommand}" Modifiers="Ctrl" Key="Tab"/>
     </Window.InputBindings>
 
     <Border>
-    <Grid>
+        <Grid>
+            <!-- Postavljanje pozadine sa gradijentnim bojama -->
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#C6C6C6" Offset="0.0"></GradientStop>
                     <GradientStop Color="#9B9B9B" Offset="0.5"></GradientStop>
                     <GradientStop Color="#727272" Offset="1.0"></GradientStop>
-
                 </LinearGradientBrush>
             </Grid.Background>
-        
-        
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <!-- Prilagođava visinu prema sadržaju -->
                 <RowDefinition Height="Auto"/>
+                <!-- Prilagođava visinu prema sadržaju -->
             </Grid.RowDefinitions>
+
             <DockPanel Grid.Row="0" Margin="0 0 0 0">
                 <Menu DockPanel.Dock="Top">
-                    <MenuItem Header="Network Entities" Margin="60 5 5 5"  FontSize="20" FontFamily="Comic Sans MS" 
-                              Command="{Binding NavCommand}" CommandParameter="NetEnt"/>
-            <MenuItem Header="Network Display" Margin="350 5 5 5" FontSize="20" FontFamily="Comic Sans MS"
-                              Command="{Binding NavCommand}" CommandParameter="NetDis"/>
-            <MenuItem Header="Measurement Graph" Margin="360 5 5 5" FontSize="20" FontFamily="Comic Sans MS"
-                              Command="{Binding NavCommand}" CommandParameter="MesGraph"/>
-            </Menu>
+                    <!-- Stvaranje stavki izbornika -->
+                    <MenuItem Header="Network Entities" Margin="60 5 5 5" FontSize="20" FontFamily="Comic Sans MS" 
+                          Command="{Binding NavCommand}" CommandParameter="NetEnt"/>
+                    <MenuItem Header="Network Display" Margin="350 5 5 5" FontSize="20" FontFamily="Comic Sans MS"
+                          Command="{Binding NavCommand}" CommandParameter="NetDis"/>
+                    <MenuItem Header="Measurement Graph" Margin="360 5 5 5" FontSize="20" FontFamily="Comic Sans MS"
+                          Command="{Binding NavCommand}" CommandParameter="MesGraph"/>
+                </Menu>
             </DockPanel>
 
             <Grid Grid.Row="1" Margin="0 0 0 0">
                 <ContentControl Content="{Binding CurrentViewModel}"  />
             </Grid>
 
-            <!--// Exit Button //-->
+            <!-- Gumb za izlaz -->
             <Button x:Name="ExitBtn"
-                        Margin="1360,0,5,0"
-                        Style="{StaticResource CloseBtnStyle}"
-                        Command="{Binding CloseWindowCommand}"
-                        CommandParameter="{Binding ElementName=MainWindowRef}"
-                        Width="40">
+                Margin="1360,0,5,0"
+                Style="{StaticResource CloseBtnStyle}"
+                Command="{Binding CloseWindowCommand}"
+                CommandParameter="{Binding ElementName=MainWindowRef}"
+                Width="40">
             </Button>
         </Grid>
     </Border>

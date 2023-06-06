@@ -1,9 +1,15 @@
-﻿<Application x:Class="NetworkService.App"
+﻿<!-- Ovo je XAML kod definicije stila i resursa za aplikaciju. -->
+
+<Application x:Class="NetworkService.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:NetworkService"
              StartupUri="MainWindow.xaml">
+
+    <!-- Definisanje resursa aplikacije -->
     <Application.Resources>
+
+        <!-- Stil koji se primenjuje na Line objekte i skriva ih ako je vrednost Y2 jednaka nuli -->
         <Style x:Key="HideIfZero" TargetType="{x:Type Line}">
             <Style.Triggers>
                 <Trigger Property="Y2" Value="0">
@@ -12,66 +18,42 @@
             </Style.Triggers>
         </Style>
 
+        <!-- Definisanje boja kao resursa za upotrebu u aplikaciji -->
+        <SolidColorBrush x:Key="UIPrimaryColor" Color="#C6C6C6"/>
+        <SolidColorBrush x:Key="UISecondaryColor" Color="#9B9B9B"/>
+        <SolidColorBrush x:Key="UITertiaryColor" Color="#727272"/>
+        <SolidColorBrush x:Key="UIAccentColor" Color="#4B4B4B"/>
+        <SolidColorBrush x:Key="UIWhiteColor" Color="#282828"/>
 
-        <SolidColorBrush x:Key="UIPrimaryColor" 
-                             Color="#C6C6C6"/>
-        <SolidColorBrush x:Key="UISecondaryColor" 
-                             Color="#9B9B9B"/>
-        <SolidColorBrush x:Key="UITertiaryColor" 
-                             Color="#727272"/>
-        <SolidColorBrush x:Key="UIAccentColor" 
-                             Color="#4B4B4B"/>
-        <SolidColorBrush x:Key="UIWhiteColor" 
-                             Color="#282828"/>
+        <!-- Definisanje slika kao resursa za upotrebu u aplikaciji -->
+        <!-- close_white slika koja se koristi za Close dugme -->
+        <ImageBrush x:Key="close_white" ImageSource="/Resources/Images/black_close.png" Stretch="Uniform" />
 
+        <!-- close_yellow slika koja se koristi za Close dugme kada je miš preko njega -->
+        <ImageBrush x:Key="close_yellow" ImageSource="/Resources/Images/red_close.png" Stretch="Uniform" />
 
-        <!--// Close Button //-->
-        <ImageBrush x:Key="close_white"
-                ImageSource="/Resources/Images/black_close.png"
-                Stretch="Uniform" />
-
-        <ImageBrush x:Key="close_yellow"
-                ImageSource="/Resources/Images/red_close.png"
-                Stretch="Uniform" />
-
-        <Style x:Key="CloseBtnStyle"
-           TargetType="{x:Type Button}">
-            <Setter Property="Height"
-                Value="30" />
-            <Setter Property="Width"
-                Value="30" />
-            <Setter Property="HorizontalAlignment"
-                Value="Center" />
-            <Setter Property="VerticalAlignment"
-                Value="Center" />
+        <!-- Stil za Close dugme -->
+        <Style x:Key="CloseBtnStyle" TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Width" Value="30" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border"
-                            BorderThickness="0"
-                            Background="{StaticResource close_white}" />
+                        <Border x:Name="border" BorderThickness="0" Background="{StaticResource close_white}" />
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver"
-                                 Value="True">
-                                <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="{StaticResource close_yellow}" />
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource close_yellow}" />
                             </Trigger>
-
-                            <Trigger Property="IsPressed"
-                                 Value="True">
-                                <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="{StaticResource close_white}" />
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource close_white}" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-        
-        
-       
-    </Application.Resources>
 
+    </Application.Resources>
 </Application>

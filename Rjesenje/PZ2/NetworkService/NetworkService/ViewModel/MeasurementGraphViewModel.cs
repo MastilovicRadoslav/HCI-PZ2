@@ -6,8 +6,8 @@ namespace NetworkService.ViewModel
 {
 	public class MeasurementGraphViewModel : BindableBase
 	{
-		public static GraphUpdater ElementHeights { get; set; } = new GraphUpdater();
-		private static int idForShow { get; set; } = -1;
+		public static GraphUpdater ElementHeights { get; set; } = new GraphUpdater();   //Ovo je svojstvo koje predstavlja objekat GraphUpdater i koristi se za ažuriranje visina elemenata grafa. Podrazumevana vrednost je nova instanca GraphUpdater.
+		private static int idForShow { get; set; } = -1;  //Ovo je privatno statičko svojstvo koje predstavlja identifikator za prikazivanje određenog elementa. Podrazumevana vrednost je -1, što označava da nijedan element nije odabran za prikaz.
 
 		public int IDForShow
 		{

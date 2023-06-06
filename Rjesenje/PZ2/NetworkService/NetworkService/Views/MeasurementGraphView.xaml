@@ -122,11 +122,13 @@
             <!-- Graf -->
             <!-- Linije koje predstavljaju graf na Canvas-u -->
             <Line X1="36" X2="36" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=FirstBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
+            <!--Style="{StaticResource HideIfZero}" označava stil linije, koji se definiše kroz resurs HideIfZero. Ovaj stil verovatno definiše da se linija neće prikazivati ako je vrednost Y2 jednaka nuli.-->
             <Line X1="102" X2="102" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=SecondBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
             <Line X1="168" X2="168" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=ThirdBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
             <Line X1="236" X2="236" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=FourthBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
             <Line X1="300" X2="300" Y1="260" Y2="{Binding Source={x:Static viewModel:MeasurementGraphViewModel.ElementHeights}, Path=FifthBindingPoint, UpdateSourceTrigger=PropertyChanged}" StrokeThickness="10" Stroke="Gray" Style="{StaticResource HideIfZero}"/>
 
+            
             <!-- Dozvoljena granica -->
             <!-- Linije koje predstavljaju dozvoljene granice -->
             <Line X1="15" Y1="120" X2="335" Y2="120" Stroke="Red" StrokeDashArray="2, 4" Canvas.Top="-10"/>
