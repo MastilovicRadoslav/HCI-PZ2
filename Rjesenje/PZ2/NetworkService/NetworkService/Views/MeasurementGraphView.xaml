@@ -76,8 +76,8 @@
                 <ColumnDefinition Width="293*"/>
             </Grid.ColumnDefinitions>
             <Label Content="Entity ID:" FontSize="20" Foreground="Black" FontWeight="Bold" VerticalAlignment="Center" Margin="0,8,202,16"/>
-            <ComboBox ItemsSource="{Binding ComboBoxData}" SelectedValue="{Binding SelectedSaobracajType, UpdateSourceTrigger=PropertyChanged}" Width="147" Height="35" Margin="106,10,0,16" HorizontalAlignment="Left" ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos za pregled na grafiku"/>
-            <Button Foreground="White" 
+            <ComboBox ItemsSource="{Binding ComboBoxData}" SelectedValue="{Binding SelectedSaobracajType, UpdateSourceTrigger=PropertyChanged}" Width="147" Height="35" Margin="106,10,0,16" HorizontalAlignment="Left" ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos za pregled na grafiku" FontSize="15"/>
+            <Button Foreground="Black" 
                     FontWeight="Bold" 
                     Content="Show" Width="200" Height="35" Margin="50,10,0,16" 
                     Command="{Binding ShowCommand}" HorizontalAlignment="Left" Grid.Column="1" Cursor="Hand">

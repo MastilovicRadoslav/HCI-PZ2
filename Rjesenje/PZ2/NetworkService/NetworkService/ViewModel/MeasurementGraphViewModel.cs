@@ -59,7 +59,7 @@ namespace NetworkService.ViewModel
 		{
 			if (HelpText == string.Empty)
 			{
-				HelpText = "U koliko vam je potrebna pomoć,prečice su sledeće:" + "\nCTRL+DH -> Help\nCTRL+S -> ComboBox prikaz " +
+				HelpText = "U koliko vam je potrebna pomoć,prečice su sledeće:" + "\nCTRL+H -> Help\nCTRL+S -> ComboBox prikaz " +
 						   "\nMeasurementGraph prikazuje podatke na svom grafiku, podaci zavise od vrijednosti koje se dobiju iz " +
 						   "MeteringSimulator T3";
 			}
