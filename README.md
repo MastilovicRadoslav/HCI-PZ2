@@ -12,7 +12,11 @@ Primjer:
 
 NetworkDisplayViewModel:
 
+Primjer:
+
 ![Drugi prozor](https://github.com/MastilovicRadoslav/HCI-PZ2/assets/122049689/4a1d46cb-bb67-46e4-9a9d-a28e3d8cd435)
+
+Primjer:
 
 MeasurementGraphViewModel;
 
