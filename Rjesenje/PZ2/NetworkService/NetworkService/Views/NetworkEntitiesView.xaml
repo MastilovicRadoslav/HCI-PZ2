@@ -46,6 +46,7 @@
                 VerticalAlignment="Center" 
                 Width="220" 
                 Command="{Binding SearchCommand}" 
+                ToolTipService.IsEnabled="{Binding ToolTipsBool}" 
                 Canvas.Left="486" 
                 Canvas.Top="101" 
                 FontSize="20"
@@ -79,7 +80,7 @@
         
         <!--Tekst za pretragu povezao sa Search-->
         <TextBox x:Name="SearchText" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Center" Width="231" Text="{Binding Search}" RenderTransformOrigin="0.375,0.552" Canvas.Left="208" Canvas.Top="102"
-                 ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos za filtriranje" Background="White" />
+                 ToolTipService.IsEnabled="{Binding ToolTipsBool}" ToolTip="Unos za filtriranje" Background="White" FontSize="25" />
 
         
         <!--Tabeka sa entitetima koju sam povezao sa PrikazEntiteta i sa Izabran i sa ToolTip-->

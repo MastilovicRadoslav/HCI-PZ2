@@ -9,9 +9,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1400">
 
-    <UserControl.DataContext>
+    <!--<UserControl.DataContext>
         <viewModel:MeasurementGraphViewModel/>
-    </UserControl.DataContext>
+    </UserControl.DataContext>-->
 
     <UserControl.InputBindings>
         <KeyBinding Command="{Binding HelpCommand}" Modifiers="Ctrl" Key="H"/>
@@ -143,7 +143,7 @@
             <!--Help-->
             <!-- Dugme za prikazivanje pomoći -->
             <Button Content="🛈 Help" FontFamily="Comic Sans MS" FontSize="30" Canvas.Left="955" Canvas.Top="-239" BorderThickness="0" Background="Transparent"
-        Height="50" Command="{Binding HelpCommand}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        Height="50" Command="{Binding HelpCommand}" HorizontalAlignment="Center" VerticalAlignment="Top" ToolTipService.IsEnabled="{Binding ToolTipsBool}" />
 
             <!-- Pomoćni Canvas -->
             <!-- Canvas koji prikazuje tekst pomoći -->

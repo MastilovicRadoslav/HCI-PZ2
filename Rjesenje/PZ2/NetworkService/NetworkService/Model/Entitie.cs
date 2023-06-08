@@ -103,7 +103,7 @@ namespace NetworkService.Model
 
 		public override string ToString()
 		{
-			return Id + " " + Name + " " + Type.Name; // Prikazivanje ID-ja, imena i imena tipa entiteta kao string
+			return "Id->" + Id + ",Name->" + Name + ",Tip->" + Type.Name; // Prikazivanje ID-ja, imena i imena tipa entiteta kao string
 		}
 	}
 }

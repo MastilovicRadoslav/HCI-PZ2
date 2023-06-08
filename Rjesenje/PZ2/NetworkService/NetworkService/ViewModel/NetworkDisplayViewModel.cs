@@ -196,9 +196,9 @@ namespace NetworkService.ViewModel
 		{
 			if (HelpText == "")
 			{
-				HelpText = "Prečice su sledeće:\nCTRL+D -> Automatsko stavljanje entiteta na mesta\nCtrl+H -> Help\nCtrl+Tab pomjeranje izmedju prozora" +
+				HelpText = "Prečice su sledeće:\nCTRL+D -> Automatsko stavljanje entiteta na sva mesta\nCtrl+H -> Help\nCtrl+Tab pomjeranje izmedju prozora. " +
 						   "Prevlačenjem entiteta iz liste u odabrano polje će rezultirati prebacivanjem entiteta iz liste" +
-						   " u to polje za prikaz trenutnog stanja tog entiteta.Prevlačenjem entiteta iz polja" +
+						   " u to polje za prikaz trenutnog stanja tog entiteta. Prevlačenjem entiteta iz polja" +
 						   " u polje ce rezultirati prebacivanjem entiteta iz polja u polje.\nPovlačenje linije" +
 						   " izmedju 2 entiteta se radi povlačenjem prvog zauzetog polja na drugo polje.";
 			}
