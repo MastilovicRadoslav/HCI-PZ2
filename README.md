@@ -6,8 +6,11 @@ MeteringSimulator - T3 and NetworkEntitiesViewModel:
 
 Primjer: 
 • Omogućava dodavanje i brisanje entiteta za monitoring.
+
 • Čuvanje osnovnih podataka o entitetima u vidu tabele, pri čemu nova dobijena brojevna vrednost merenja se prikazuje u jednoj od kolona tabele.
+
 • Prilikom dodavanja entiteta, potrebno je dodeliti vrednosti svim svojstvima entiteta.
+
 • Omogućiti pretragu ili filtriranje prikaza u tabeli. Pretraga se vrši na osnovu naziva ili tipa entiteta.
 
 ![Prvi prozor](https://github.com/MastilovicRadoslav/HCI-PZ2/assets/122049689/6c74ca5a-8a83-425e-aad3-6e34ac08e8ff)
