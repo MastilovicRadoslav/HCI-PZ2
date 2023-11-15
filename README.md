@@ -33,7 +33,8 @@ Primjer:
 
 • Omogućiti spajanje entiteta linijama koje će se pomerati zajedno sa entitetima prilikom pomeranja na Drag&Drop mreži.
 
-**![Drugi prozor](https://github.com/MastilovicRadoslav/HCI-PZ2/assets/122049689/4a1d46cb-bb67-46e4-9a9d-a28e3d8cd435)**
+![image](https://github.com/MastilovicRadoslav/HCI-PZ2/assets/122049689/7a0502fb-0090-48c8-95fe-3c007c54b81f)
+
 
 MeasurementGraphViewModel:
 
