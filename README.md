@@ -14,9 +14,10 @@ Primjer:
 
 • Omogućiti pretragu ili filtriranje prikaza u tabeli. Pretraga se vrši na osnovu naziva ili tipa entiteta.
 
-![Prvi prozor](https://github.com/MastilovicRadoslav/HCI-PZ2/assets/122049689/6c74ca5a-8a83-425e-aad3-6e34ac08e8ff)
+![image](https://github.com/MastilovicRadoslav/HCI-PZ2/assets/122049689/97ed2fb4-c5f6-4310-8b18-0ddbb6a39a74)
 
-![Prvi prozor_1](https://github.com/MastilovicRadoslav/HCI-PZ2/assets/122049689/c7eb0250-6895-418e-8d35-0538b54214f9)
+![image](https://github.com/MastilovicRadoslav/HCI-PZ2/assets/122049689/f07b41b2-4fea-4c5f-8796-a5239af7cab2)
+
 
 NetworkDisplayViewModel:
 
@@ -32,7 +33,7 @@ Primjer:
 
 • Omogućiti spajanje entiteta linijama koje će se pomerati zajedno sa entitetima prilikom pomeranja na Drag&Drop mreži.
 
-![Drugi prozor](https://github.com/MastilovicRadoslav/HCI-PZ2/assets/122049689/4a1d46cb-bb67-46e4-9a9d-a28e3d8cd435)
+**![Drugi prozor](https://github.com/MastilovicRadoslav/HCI-PZ2/assets/122049689/4a1d46cb-bb67-46e4-9a9d-a28e3d8cd435)**
 
 MeasurementGraphViewModel:
 
@@ -46,7 +47,8 @@ Primjer:
 
 • Grafikoni se crtaju programski, bez korišćenja gotovih Chart kontrola.
 
-![Treci prozor](https://github.com/MastilovicRadoslav/HCI-PZ2/assets/122049689/2d953a5d-8a5c-4393-ae7f-c82709e3334e)
+![image](https://github.com/MastilovicRadoslav/HCI-PZ2/assets/122049689/d463acc3-7e73-494a-9589-ccbfd8bb810e)
+
 
 
         
